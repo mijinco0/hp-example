@@ -1,0 +1,21 @@
+%d-red {
+    border-style: solid;
+    background: rgba(255, 0, 0, .1);
+    border-color: rgba(255, 0, 0, 1.0);
+    border-width: 1px;
+}
+
+%d-green {
+    border-style: solid;
+    background: rgba(0, 255, 0, .1);
+    border-color: rgba(0, 180, 0, 1.0);
+    border-width: 1px;
+}
+
+.d-main {
+    @extend %d-red;
+}
+
+.d-sidebar {
+    @extend %d-green;
+}
