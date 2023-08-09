@@ -1,0 +1,31 @@
+html {
+    /* ベースフォントをデフォルトの 16px から 10px (= 16 * 0.625) にする
+       こうすると 1rem = 10px (= 10px * 1)，1.5rem = 15px (= 10px * 1.5) となり計算しやすい */
+    font-size: 62.5%;
+}
+
+body {
+    font-family:
+        "メイリオ", Meiryo,
+        "ヒラギノ角ゴ Pro W3",
+        "HIragino Kaku Gothic Pro W3",
+        "HIragino Kaku Gothic Pro",
+        Osaka,
+        "ＭＳ Ｐゴシック", "MS P Gothic",
+        sans-serif;
+    font-size: 1.5rem;
+
+    a {
+        /* マウスホバー時だけリンクに下線を引く */
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+
+        /* 長すぎて画面からはみ出る URL を折り返す*/
+        word-break: break-all;
+    }
+
+    /* 英字の文字列がブロックからはみ出るのを回避する */
+    word-break: break-all;
+}
