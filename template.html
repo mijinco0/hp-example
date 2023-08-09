@@ -11,29 +11,166 @@
 <body>
 
 <div class="l-page">
-    <header class="l-header d-header">
-        Header Header
+    <header class="l-header p-header d-header">
+        <div class="p-header__title"><a href="index.html">Header Header</a></div>
     </header>
 
     <main class="l-main d-main">
-        <p>
-            メインメインメインmain main mainメインメインメインmain main main
-            メインメインメインmain main mainメインメインメインmain main main
-            メインメインメインmain main mainメインメインメインmain main main
-            メインメインメインmain main mainメインメインメインmain main main
-            メインメインメインmain main mainメインメインメインmain main main
+        <div class="p-artheader d-artheader">
+            <nav class="p-nav d-nav">
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li>パンくずパンくずパンくず</li>
+                </ol>
+            </nav>
+
+            <div class="p-date d-date">
+                0000年00月00日に更新
+            </div>
+        </div>
+
+        <h2 class="p-headline">記事見出し記事見出し記事見出し記事見出し</h2>
+
+        <p class="p-lead d-lead">
+            リード文リード文リード文リード文リード文リード文リード文リード文
+            lead lead lead lead lead lead lead lead lead lead lead lead
+            リード文リード文リード文リード文リード文リード文リード文リード文
+            lead lead lead lead lead lead lead lead lead lead lead lead
         </p>
+
+        <div class="p-toc d-toc">
+            <h3 class="p-toc__label d-toc__label">目次</h3>
+            <div class="p-toc__body d-toc__body">
+                <ul class="c-itemize--disc">
+                    <li>
+                        hogehogehogehogehogehogehogehogeほげほげほげほげほげほげほげげほげほげほげほ
+                        げほげほげほげほげほげほげほげほげほげほげほげほ
+                    </li>
+                    <li>fugafugafugafugafugafuga</li>
+                    <li>piyopiyopiyopiyopiyopiyopiyopiyopiyo</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="p-section d-section">
+            <h3 class="p-section__headline">小見出し1</h3>
+            <p class="p-section__body">
+                section1の本文です。section1の本文です。section1の本文です。section1の本文です。
+                section1の本文です。section1の本文です。section1の本文です。section1の本文です。
+                section1の本文です。section1の本文です。section1の本文です。section1の本文です。
+                section1の本文です。section1の本文です。section1の本文です。section1の本文です。
+                section1の本文です。section1の本文です。section1の本文です。section1の本文です。
+                section1の本文です。section1の本文です。section1の本文です。section1の本文です。
+            </p>
+        </section>
+
+        <section class="p-section d-section">
+            <h3 class="p-section__headline">小見出し2</h3>
+            <p class="p-section__body">
+                section2の本文であります。section2の本文であります。section2の本文であります。
+                section2の本文であります。section2の本文であります。section2の本文であります。
+                section2の本文であります。section2の本文であります。section2の本文であります。
+                section2の本文であります。section2の本文であります。section2の本文であります。
+                section2の本文であります。section2の本文であります。section2の本文であります。
+                section2の本文であります。section2の本文であります。section2の本文であります。
+                section2の本文であります。section2の本文であります。section2の本文であります。
+                section2の本文であります。section2の本文であります。section2の本文であります。
+
+                <ul class="c-itemize--disc u-mt5">
+                    <li>箇条書きのテスト1</li>
+                    <li>
+                        箇条書きのテスト2 箇条書きのテスト2 箇条書きのテスト2 箇条書きのテスト2
+                        箇条書きのテスト2 箇条書きのテスト2 箇条書きのテスト2 箇条書きのテスト2
+                    </li>
+                    <li>箇条書きのテスト3</li>
+                </ul>
+            </p>
+        </section>
+
+        <div class="p-artfooter d-artfooter">
+            <nav class="p-nav d-nav">
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li>パンくずパンくずパンくず</li>
+                    <li>深いパンくずパンくずパンくずパンくずパンくずパンくずパンくず</li>
+                    <li>深すぎるパンくずパンくずパンくずパンくずパンくずパンくずパンくずパンくずパンくず</li>
+                </ol>
+            </nav>
+
+            <div class="p-goto-arttop d-goto-arttop">
+                ▲
+            </div>
+        </div>
+
+        <div class="c-adbox p-adbox d-adbox">
+            <!-- JavaScript が有効のときだけ "広告" ラベルを表示する -->
+            <script>document.write('<p class="c-adbox__label d-adbox__label">広告</p>');</script>
+            <div class="c-adbox__body d-adbox__body">
+            </div>
+        </div>
     </main>
 
     <aside class="l-sidebar d-sidebar">
-        <p>
-            サイドバーサイドバーサイドバーsidebar sidebar sidebar
-            サイドバーサイドバーサイドバーsidebar sidebar sidebar
-            サイドバーサイドバーサイドバーsidebar sidebar sidebar
-        </p>
+        <div class="c-adbox p-adbox-pc d-adbox">
+            <!-- JavaScript が有効のときだけ "広告" ラベルを表示する -->
+            <script>document.write('<p class="c-adbox__label d-adbox__label">広告</p>');</script>
+            <div class="c-adbox__body d-adbox__body">
+            </div>
+        </div>
+
+        <div class="c-itembox p-itembox d-itembox">
+            <div class="c-itembox__label p-itembox__label">カテゴリー</div>
+            <ul class="c-itembox__body">
+                <li><a href="#">カテゴリーカテゴリーカテゴリーカテゴリーカテゴリー</a></li>
+                <li><a href="#">カテ カテ カテ カテ カテ カテ カテ カテ カテ カテ </a></li>
+                <li>
+                    <a href="#">
+                        ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ
+                        ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="c-itembox p-itembox d-itembox">
+            <div class="c-itembox__label p-itembox__label">新しめの記事</div>
+            <ul class="c-itembox__body">
+                <li><a href="#">新しめの記事 その一</a></li>
+                <li><a href="#">新しめの記事 その二</a></li>
+                <li><a href="#">新しめの記事 その三 新しめの記事 その三</a></li>
+                <li><a href="#">新しめの記事 その四</a></li>
+                <li><a href="#">新しめの記事 その五</a></li>
+                <li><a href="#">新しめの記事 その六</a></li>
+                <li>
+                    <a href="#">
+                        新しめの記事 その七 新しめの記事 その七 新しめの記事 その七 新しめの記事 その七
+                        新しめの記事 その七 新しめの記事 その七 新しめの記事 その七 新しめの記事 その七
+                    </a>
+                </li>
+                <li><a href="#">新しめの記事 その八</a></li>
+                <li><a href="#">新しめの記事 その九</a></li>
+                <li><a href="#">新しめの記事 その十</a></li>
+            </ul>
+        </div>
+
+        <div class="c-itembox p-itembox d-itembox">
+            <div class="c-itembox__label p-itembox__label">サイト情報</div>
+            <ul class="c-itembox__body">
+                <li><a href="#">更新履歴</a></li>
+                <li><a href="#">このサイトについて</a></li>
+                <li><a href="#">サイトマップ</a></li>
+            </ul>
+        </div>
+
+        <div class="c-adbox p-adbox d-adbox">
+            <!-- JavaScript が有効のときだけ "広告" ラベルを表示する -->
+            <script>document.write('<p class="c-adbox__label d-adbox__label">広告</p>');</script>
+            <div class="c-adbox__body d-adbox__body">
+            </div>
+        </div>
     </aside>
 
-    <footer class="l-footer d-footer">
+    <footer class="l-footer p-footer d-footer">
         <small>footerfooter</small>
     </footer>
 </div>
