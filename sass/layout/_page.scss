@@ -1,7 +1,10 @@
 .l-page {
     max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+
     display: grid;
-    grid-gap: 15px;
+    grid-gap: $margin-default;
     grid-template-columns: 1fr;
     grid-template-areas:
         "header"
@@ -12,7 +15,8 @@
 
 @include mq-up("pc") {
     .l-page {
-        grid-template-columns: 3fr 1fr;
+        max-width: $layout-width-max;
+        grid-template-columns: 1fr $sidebar-width-pc;
         grid-template-areas:
             "header header"
             "main sidebar"

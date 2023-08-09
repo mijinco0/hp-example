@@ -1,4 +1,12 @@
 .l-main {
     grid-area: main;
     background: #FFCCCC;
+    padding-right: $padding-default;
+    padding-left: $padding-default;
+}
+
+@include mq-up("pc") {
+    .l-main {
+        padding-right: 0;
+    }
 }

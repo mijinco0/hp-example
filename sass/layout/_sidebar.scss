@@ -1,4 +1,13 @@
 .l-sidebar {
     grid-area: sidebar;
     background: #FFEEAA;
+    padding-right: $padding-default;
+    padding-left: $padding-default;
+}
+
+@include mq-up("pc") {
+    .l-sidebar {
+        padding-right: 0;
+        padding-left: 0;
+    }
 }

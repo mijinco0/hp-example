@@ -1,6 +1,11 @@
+// 余白のデフォルト値
+$margin-default: 15px;
+$padding-default: 10px;
+
 // おおまかなレイアウトの設定
 $layout-width-max:1024px;
 $layout-width-sp: 768px;
+$sidebar-width-pc: 300px;
 
 // ブレークポイント (スマホベース)
 $breakpoints-up: (
