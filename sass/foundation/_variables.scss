@@ -1,0 +1,18 @@
+// おおまかなレイアウトの設定
+$layout-width-max:1024px;
+$layout-width-sp: 768px;
+
+// ブレークポイント (スマホベース)
+$breakpoints-up: (
+    "sp": "(max-width: #{$layout-width-sp - 1px})",
+    "tab": "(min-width: #{$layout-width-sp})",
+    "pc": "(min-width: #{$layout-width-max})",
+);
+
+// ヘッダーの高さ
+$header-height-sp: 60px;
+$header-height-pc: 60px;
+
+// 色
+$site-color-bg: #FFCC00;
+$site-color-fg: #000000;

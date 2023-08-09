@@ -1,0 +1,11 @@
+.l-header {
+    grid-area: header;
+    height: $header-height-sp;
+    background: $site-color-bg;
+}
+
+@include mq-up("pc") {
+    .l-header {
+        height: $header-height-pc;
+    }
+}

@@ -1,0 +1,6 @@
+// メディアクエリ
+@mixin mq-up($bp: tab) {
+    @media #{map-get($breakpoints-up, $bp)} {
+        @content;
+    }
+}
