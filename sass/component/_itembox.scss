@@ -1,0 +1,21 @@
+.c-itembox {
+    width: 100%;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.c-itembox__label {
+    text-align: center;
+    font-weight: normal;
+}
+
+.c-itembox__body {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 1.5em;
+
+    li {
+        @extend %c-itemize__item;
+    }
+}

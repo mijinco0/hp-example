@@ -1,0 +1,37 @@
+.c-itemize {
+    margin-left: 2.0em;
+}
+
+.c-itemize--disc {
+    @extend .c-itemize;
+    li {
+        @extend %c-itemize__item;
+    }
+}
+
+.c-itemize--decimal {
+    @extend .c-itemize;
+}
+
+%c-itemize__item {
+    list-style-type: none;
+    position: relative;
+
+    &::before {
+        content: "・";
+        display: inline-block;
+        marign-left: -1.2em;
+        width: 1em;
+        text-align:right;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+/* 行末を三点リーダーで処理して一行に収める (実験用) */
+%c-itemize__item--sl {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
