@@ -5,6 +5,7 @@
 
     display: grid;
     grid-gap: $margin-default;
+    align-items: start;    /* これを指定しないとメインとサイドバーの高さを無理やり合わせにくる */
     grid-template-columns: 1fr;
     grid-template-areas:
         "header"
