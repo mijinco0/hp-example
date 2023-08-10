@@ -6,5 +6,6 @@
 @include mq-up("pc") {
     .l-header {
         height: $header-height-pc;
+        margin-top: $margin-default;
     }
 }

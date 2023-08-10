@@ -16,6 +16,7 @@
 @include mq-up("pc") {
     .l-page {
         max-width: $layout-width-max;
+        column-gap: $margin-default * 1.5;
         grid-template-columns: 1fr $sidebar-width-pc;
         grid-template-areas:
             "header header"
