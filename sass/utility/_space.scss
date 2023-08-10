@@ -1,0 +1,99 @@
+/* margin default */
+.u-mt {
+    margin-top: $margin-default;
+}
+.u-mr {
+    margin-right: $margin-default;
+}
+.u-mb {
+    margin-bottom: $margin-default;
+}
+.u-ml {
+    margin-left: $margin-default;
+}
+.u-mtb {
+    margin-top: $margin-default;
+    margin-bottom: $margin-default;
+}
+.u-mrl {
+    margin-right: $margin-default;
+    margin-left: $margin-default;
+}
+.u-mtb-auto {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.u-mrl-auto {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* padding default */
+.u-pt {
+    padding-top: $padding-default;
+}
+.u-pr {
+    padding-right: $padding-default;
+}
+.u-pb {
+    padding-bottom: $padding-default;
+}
+.u-pl {
+    padding-left: $padding-default;
+}
+.u-ptb {
+    padding-top: $padding-default;
+    padding-bottom: $padding-default;
+}
+.u-prl {
+    padding-right: $padding-default;
+    padding-left: $padding-default;
+}
+
+$sp-step: 5;
+
+@for $i from 0 through 6 {
+    /* margin */
+    .u-mt#{$i * $sp-step} {
+        margin-top: #{$i * $sp-step}px;
+    }
+    .u-mr#{$i * $sp-step} {
+        margin-right: #{$i * $sp-step}px;
+    }
+    .u-mb#{$i * $sp-step} {
+        margin-bottom: #{$i * $sp-step}px;
+    }
+    .u-ml#{$i * $sp-step} {
+        margin-left: #{$i * $sp-step}px;
+    }
+    .u-mtb#{$i * $sp-step} {
+        margin-top: #{$i * $sp-step}px;
+        margin-bottom: #{$i * $sp-step}px;
+    }
+    .u-mrl#{$i * $sp-step} {
+        margin-right: #{$i * $sp-step}px;
+        margin-left: #{$i * $sp-step}px;
+    }
+
+    /* padding */
+    .u-pt#{$i * $sp-step} {
+        padding-top: #{$i * $sp-step}px;
+    }
+    .u-pr#{$i * $sp-step} {
+        padding-right: #{$i * $sp-step}px;
+    }
+    .u-pb#{$i * $sp-step} {
+        padding-bottom: #{$i * $sp-step}px;
+    }
+    .u-pl#{$i * $sp-step} {
+        padding-left: #{$i * $sp-step}px;
+    }
+    .u-ptb#{$i * $sp-step} {
+        padding-top: #{$i * $sp-step}px;
+        padding-bottom: #{$i * $sp-step}px;
+    }
+    .u-prl#{$i * $sp-step} {
+        padding-right: #{$i * $sp-step}px;
+        padding-left: #{$i * $sp-step}px;
+    }
+}
