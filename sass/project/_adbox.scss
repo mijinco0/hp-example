@@ -1,0 +1,17 @@
+.p-adbox-sp {
+    display: block;
+}
+
+.p-adbox-pc {
+    display: none;
+}
+
+@include mq-up("pc") {
+    .p-adbox-sp {
+        display: none;
+    }
+
+    .p-adbox-pc {
+        display: block;
+    }
+}

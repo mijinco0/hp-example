@@ -1,0 +1,37 @@
+.p-artheader {
+}
+
+.p-nav {
+    ol {
+        margin: 0;
+        padding-left: 0;
+        list-style: none;
+        li {
+            display: inline;
+            &::after {
+                content: ">";
+                padding-left: .5rem;
+                padding-right: .1rem;
+            }
+            &:last-child {
+                &::after {
+                    content: none;
+                }
+            }
+        }
+    }
+}
+
+.p-artfooter {
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.p-goto-arttop {
+    padding: 0 10px 0 30px;
+}
+
+.p-date {
+}

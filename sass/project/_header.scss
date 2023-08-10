@@ -1,0 +1,10 @@
+.p-header {
+    background: $site-color-bg;
+}
+
+.p-header__title {
+    a {
+        color: $site-color-fg;
+        text-decoration: none;
+    }
+}
