@@ -22,7 +22,29 @@
     }
 }
 
+.p-headline {
+    font-size: 2.5rem;
+}
+
+.p-toc {
+    margin: 0 $margin-default;
+}
+
+.p-toc__label {
+    font-size: 1.5rem;
+}
+
+.p-toc__body {
+}
+
+.p-section__body {
+    margin-top: 5px;
+}
+
+
 .p-artfooter {
+    border-to: solid 2px $site-color-bg;
+    padding-top: 5px;
     display: -webkit-flex;
     display: flex;
     justify-content: space-between;
@@ -34,4 +56,6 @@
 }
 
 .p-date {
+    font-size: 1.3rem;
+    color: $font-color-light;
 }
