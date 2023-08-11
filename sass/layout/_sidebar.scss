@@ -2,6 +2,10 @@
     grid-area: sidebar;
     padding-right: $padding-default;
     padding-left: $padding-default;
+
+    display: grid;
+    grid-gap: $margin-default;
+    grid-template-columns: 1fr;
 }
 
 @include mq-up("pc") {
