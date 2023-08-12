@@ -6,8 +6,8 @@ const pcss = require('gulp-postcss');
 const mqp = require('css-mqpacker');
 
 const io_sass = {
-    src: 'sass/**/*.scss',
-    dest: 'css',
+    src: 'src/sass/**/*.scss',
+    dest: 'public/css/',
 }
 const opt_sass = {
     outputStyle: 'expanded',
@@ -28,6 +28,19 @@ function sass_task() {
         ;
 }
 
+const io_css = {
+    src: 'src/css/**/*.css',
+    dest: 'public/css/',
+}
+
+/* css task */
+function css_task() {
+    return gulp.src(io_css.src)
+        .pipe(gulp.dest(io_css.dest))
+        ;
+}
+
 exports.default = gulp.series(
-    sass_task
+    sass_task,
+    css_task,
 );

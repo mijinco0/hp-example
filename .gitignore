@@ -1,2 +1,3 @@
 node_modules/
-css/style.css
+public/
+src/css/style.css
