@@ -4,6 +4,8 @@ const glob = require('gulp-sass-glob');
 const lec = require('gulp-line-ending-corrector');
 const pcss = require('gulp-postcss');
 const mqp = require('css-mqpacker');
+const ejs = require('gulp-ejs');
+const rename = require('gulp-rename');
 
 const io_sass = {
     src: 'src/sass/**/*.scss',
@@ -28,6 +30,20 @@ function sass_task() {
         ;
 }
 
+const io_ejs = {
+    src: ['src/ejs/**/*.ejs', '!src/ejs/**/_*.ejs'],
+    dest: 'public/',
+}
+
+/* EJS task */
+function ejs_task() {
+    return gulp.src(io_ejs.src)
+        .pipe(ejs())
+        .pipe(rename({extname: '.html'}))
+        .pipe(gulp.dest(io_ejs.dest))
+        ;
+}
+
 const io_css = {
     src: 'src/css/**/*.css',
     dest: 'public/css/',
@@ -43,4 +59,5 @@ function css_task() {
 exports.default = gulp.series(
     sass_task,
     css_task,
+    ejs_task,
 );

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>hp-example</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="l-page">
+    <%- include('_header') %>
+
+    <main class="l-main d-main">
+        <div class="p-artheader d-artheader">
+            <nav class="p-nav d-nav">
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li>パンくずパンくずパンくず</li>
+                </ol>
+            </nav>
+        </div>
+
+        <div>
+            <div class="p-date d-date">
+                0000年00月00日に更新
+            </div>
+            <h2 class="p-headline">記事見出し記事見出し記事見出し記事見出し</h2>
+        </div>
+
+        <p class="p-lead d-lead">
+            リード文リード文リード文リード文リード文リード文リード文リード文
+            lead lead lead lead lead lead lead lead lead lead lead lead
+            リード文リード文リード文リード文リード文リード文リード文リード文
+            lead lead lead lead lead lead lead lead lead lead lead lead
+        </p>
+
+        <div class="p-toc d-toc">
+            <h3 class="p-toc__label d-toc__label">目次</h3>
+            <div class="p-toc__body d-toc__body">
+                <ul class="c-itemize--disc">
+                    <li>
+                        hogehogehogehogehogehogehogehogeほげほげほげほげほげほげほげげほげほげほげほ
+                        げほげほげほげほげほげほげほげほげほげほげほげほ
+                    </li>
+                    <li>fugafugafugafugafugafuga</li>
+                    <li>piyopiyopiyopiyopiyopiyopiyopiyopiyo</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="p-section d-section">
+            <h3 class="p-section__headline">小見出し1</h3>
+            <p class="p-section__body">
+                section1の本文です。section1の本文です。section1の本文です。section1の本文です。
+                section1の本文です。section1の本文です。section1の本文です。section1の本文です。
+                section1の本文です。section1の本文です。section1の本文です。section1の本文です。
+                section1の本文です。section1の本文です。section1の本文です。section1の本文です。
+                section1の本文です。section1の本文です。section1の本文です。section1の本文です。
+                section1の本文です。section1の本文です。section1の本文です。section1の本文です。
+            </p>
+        </section>
+
+        <section class="p-section d-section">
+            <h3 class="p-section__headline">小見出し2</h3>
+            <p class="p-section__body">
+                section2の本文であります。section2の本文であります。section2の本文であります。
+                section2の本文であります。section2の本文であります。section2の本文であります。
+                section2の本文であります。section2の本文であります。section2の本文であります。
+                section2の本文であります。section2の本文であります。section2の本文であります。
+                section2の本文であります。section2の本文であります。section2の本文であります。
+                section2の本文であります。section2の本文であります。section2の本文であります。
+                section2の本文であります。section2の本文であります。section2の本文であります。
+                section2の本文であります。section2の本文であります。section2の本文であります。
+
+                <ul class="c-itemize--disc u-mt5">
+                    <li>箇条書きのテスト1</li>
+                    <li>
+                        箇条書きのテスト2 箇条書きのテスト2 箇条書きのテスト2 箇条書きのテスト2
+                        箇条書きのテスト2 箇条書きのテスト2 箇条書きのテスト2 箇条書きのテスト2
+                    </li>
+                    <li>箇条書きのテスト3</li>
+                </ul>
+            </p>
+        </section>
+
+        <div class="p-artfooter d-artfooter">
+            <nav class="p-nav d-nav">
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li>パンくずパンくずパンくず</li>
+                    <li>深いパンくずパンくずパンくずパンくずパンくずパンくずパンくず</li>
+                    <li>深すぎるパンくずパンくずパンくずパンくずパンくずパンくずパンくずパンくずパンくず</li>
+                </ol>
+            </nav>
+
+            <div class="p-goto-arttop d-goto-arttop">
+                ▲
+            </div>
+        </div>
+
+        <div class="c-adbox p-adbox d-adbox">
+            <!-- JavaScript が有効のときだけ "広告" ラベルを表示する -->
+            <script>document.write('<p class="c-adbox__label d-adbox__label">広告</p>');</script>
+            <div class="c-adbox__body d-adbox__body">
+            </div>
+        </div>
+    </main>
+
+    <aside class="l-sidebar d-sidebar">
+        <div class="c-adbox p-adbox-pc d-adbox">
+            <!-- JavaScript が有効のときだけ "広告" ラベルを表示する -->
+            <script>document.write('<p class="c-adbox__label d-adbox__label">広告</p>');</script>
+            <div class="c-adbox__body d-adbox__body">
+            </div>
+        </div>
+
+        <%- include('_category') %>
+        <%- include('_newentry') %>
+        <%- include('_siteinfo') %>
+
+        <div class="c-adbox p-adbox d-adbox">
+            <!-- JavaScript が有効のときだけ "広告" ラベルを表示する -->
+            <script>document.write('<p class="c-adbox__label d-adbox__label">広告</p>');</script>
+            <div class="c-adbox__body d-adbox__body">
+            </div>
+        </div>
+    </aside>
+
+    <%- include('_footer') %>
+</div>
+
+</body>
+</html>
