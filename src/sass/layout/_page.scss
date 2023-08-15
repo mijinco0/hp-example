@@ -25,3 +25,14 @@
             "footer footer"
     }
 }
+
+@media print {
+    .l-page {
+        max-width: $print-width;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "main"
+            "footer"
+    }
+}
