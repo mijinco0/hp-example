@@ -12,10 +12,74 @@
     border-width: 1px;
 }
 
+%d-blue {
+    border-style: solid;
+    background: rgba(0, 0, 255, .1);
+    border-color: rgba(0, 0, 255, 1.0);
+    border-width: 1px;
+}
+
 .d-main {
-    @extend %d-red;
+    @extend %d-green;
+}
+
+.d-artheader {
+    @extend %d-green;
+}
+
+.d-article {
+    @extend %d-green;
+}
+
+.d-lead {
+    @extend %d-blue;
+}
+
+.d-artfooter {
+    @extend %d-green;
+}
+
+.d-nav {
+    @extend %d-blue;
+}
+
+.d-date {
+    @extend %d-blue;
+}
+
+.d-toc__label {
+    @extend %d-blue;
+}
+
+.d-toc__body {
+    @extend %d-blue;
+}
+
+.d-toc__body ul {
+    @extend %d-blue;
+}
+
+.d-section {
+    @extend %d-blue;
+}
+
+.d-goto-arttop {
+    @extend %d-blue;
 }
 
 .d-sidebar {
     @extend %d-green;
+}
+
+.d-adbox {
+    @extend %d-red;
+}
+
+.d-adbox__label {
+    @extend %d-blue;
+}
+
+.d-adbox__body {
+    @extend %d-blue;
+    height: 140px;
 }
