@@ -1,0 +1,23 @@
+.c-footnote {
+    margin-top: $margin-default;
+    margin-right: $margin-default;
+    margin-left: 3.0em;
+    font-size: 1.3rem;
+
+    li {
+        list-style-type: none;
+        position: relative;
+        counter-increment: cnt;
+
+        &::before {
+            content: counter(cnt) ")";
+            display: inline-block;
+            margin-left: -2.5em;
+            width: 2em;
+            text-align: right;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+}
