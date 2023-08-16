@@ -27,11 +27,22 @@
 }
 
 .p-toc {
+    position: relative;
     margin: 0 $margin-default;
+    padding-top: 1em;
+    padding-bottom: $padding-default;
+    border: 1px solid $font-color;
 }
 
 .p-toc__label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0 0.5em;
     font-size: 1.5rem;
+    background-color: $site-color-bg;
+    transform: translateY(-50%) translateX(1em);
 }
 
 .p-toc__body {
