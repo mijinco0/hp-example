@@ -1,5 +1,5 @@
 .p-itembox {
-    border-color: $site-color-bg;
+    border-color: $site-color;
 }
 
 /* サイドバー用の itembox (実験用) */
@@ -13,6 +13,6 @@
 }
 
 .p-itembox__label {
-    background-color: $site-color-bg;
+    background-color: $site-color;
     color: $site-color-fg;
 }
