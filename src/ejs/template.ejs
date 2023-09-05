@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<% let url = ""; %>
 <title>hp-example</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -77,12 +78,17 @@
             <h3 class="p-section__headline">小見出し2</h3>
             <p class="p-section__body">
                 section2の本文であります。section2の本文であります。section2の本文であります。
-                <a class="c-linkblock" href="#">別行立てリンク (中央寄せ) のテスト</a>
+                <% url = "#"; %>
+                <div class="c-linkblock">
+                    <a href="<%- url %>">別行立てリンク (中央寄せ) のテスト</a>
+                </div>
                 section2の本文であります。section2の本文であります。section2の本文であります。
                 section2の本文であります。section2の本文であります。section2の本文であります。
                 section2の本文であります。section2の本文であります。section2の本文であります。
                 section2の本文であります。section2の本文であります。section2の本文であります。
-                <a class="c-linkblock--left" href="#">別行立てリンク (左寄せ) のテスト</a>
+                <div class="c-linkblock--left">
+                    <a href="<%- url %>">別行立てリンク (左寄せ) のテスト</a>
+                </div>
                 section2の本文であります。section2の本文であります。section2の本文であります。
                 section2の本文であります。section2の本文であります。section2の本文であります。
                 section2の本文であります。section2の本文であります。section2の本文であります。
@@ -95,7 +101,9 @@
                     </li>
                     <li>
                         箇条書きのテスト3 ついでに
-                        <a class="c-linkblock--left" href="#">箇条書きの中で別行立てリンクのテスト</a>
+                        <div class="c-linkblock--left">
+                            <a href="<%- url %>">箇条書きの中で別行立てリンクのテスト</a>
+                        </div>
                     </li>
                 </ul>
             </p>
