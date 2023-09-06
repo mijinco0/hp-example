@@ -1,6 +1,15 @@
-.c-linkblock {
+.c-linkline {
     text-align: center;
     padding-left: inherit;    /* c-itemize や c-itembox の中に置かれた場合の字下げ対策 */
+}
+
+.c-linkline--left {
+    @extend .c-linkline;
+    text-align: left;
+}
+
+.c-linkblock {
+    @extend .c-linkline;
     margin-top: 5px;
     margin-bottom: 5px;
 }
