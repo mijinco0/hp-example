@@ -1,7 +1,7 @@
 .c-itemize {
     margin-left: 2.0em;
     margin-right: 1.0em;
-    margin-top:5px;
+    margin-top: 5px;
     margin-bottom: 5px;
     padding: 0;
 }
@@ -11,6 +11,13 @@
     li {
         @extend %c-itemize__item;
     }
+}
+
+// マーカーなし
+.c-itemize--nomark {
+    @extend .c-itemize;
+    margin-left: 1.0em;
+    list-style: none;
 }
 
 .c-itemize--decimal {
