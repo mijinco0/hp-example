@@ -8,7 +8,7 @@
 
 .c-itemize--disc {
     @extend .c-itemize;
-    li {
+    > li {
         @extend %c-itemize__item;
     }
 }
