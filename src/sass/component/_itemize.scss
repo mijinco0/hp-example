@@ -1,4 +1,4 @@
-.c-itemize {
+%c-itemize--base {
     margin-left: 2.0em;
     margin-right: 1.0em;
     margin-top: 5px;
@@ -6,22 +6,33 @@
     padding: 0;
 }
 
+.c-itemize {
+    @extend %c-itemize--base;
+    > li {
+        @extend %c-itemize__item--disc;
+    }
+}
+
 .c-itemize--disc {
     @extend .c-itemize;
+}
+
+.c-itemize--hyphen {
+    @extend .c-itemize;
     > li {
-        @extend %c-itemize__item;
+        @extend %c-itemize__item--hyphen;
     }
 }
 
 // マーカーなし
 .c-itemize--nomark {
-    @extend .c-itemize;
+    @extend %c-itemize--base;
     margin-left: 1.0em;
     list-style: none;
 }
 
 .c-itemize--decimal {
-    @extend .c-itemize;
+    @extend %c-itemize--base;
 }
 
 %c-itemize__item {
@@ -37,6 +48,18 @@
         position: absolute;
         top: 0;
         left: 0;
+    }
+}
+
+%c-itemize__item--disc {
+    @extend %c-itemize__item;
+}
+
+%c-itemize__item--hyphen {
+    @extend %c-itemize__item;
+    &::before {
+        content: "-";
+        margin-left: -1.7em;
     }
 }
 
