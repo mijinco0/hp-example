@@ -6,6 +6,7 @@ const pcss = require('gulp-postcss');
 const mqp = require('css-mqpacker');
 const ejs = require('gulp-ejs');
 const rename = require('gulp-rename');
+const data = require('gulp-data');
 
 const io_sass = {
     src: 'src/sass/**/*.scss',
@@ -31,6 +32,7 @@ function sass_task() {
 }
 
 const io_ejs = {
+    path: 'src/ejs/',
     src: ['src/ejs/**/*.ejs', '!src/ejs/**/_*.ejs'],
     dest: 'public/',
 }
@@ -38,6 +40,17 @@ const io_ejs = {
 /* EJS task */
 function ejs_task() {
     return gulp.src(io_ejs.src)
+        .pipe(data(function(ejsfile) {
+            let fpath = ejsfile.path.replace(/\\/g, '/');
+            ejsfile = `${fpath.split(io_ejs.path)[1]}`;
+            const abspath = `/${ejsfile.replace('.ejs', '.html').replace(/index\.html$/, '')}`;
+            const relpath = '../'.repeat([abspath.split('/').length - 2]);
+            console.log("ejsfile=" + ejsfile + ", abspath=" + abspath + ", relpath=" + relpath);
+            return {
+                abspath,
+                relpath,
+            };
+        }))
         .pipe(ejs())
         .pipe(rename({extname: '.html'}))
         .pipe(gulp.dest(io_ejs.dest))
