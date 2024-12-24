@@ -7,6 +7,7 @@ const mqp = require('css-mqpacker');
 const ejs = require('gulp-ejs');
 const rename = require('gulp-rename');
 const data = require('gulp-data');
+const fs = require('fs');
 
 const io_sass = {
     src: 'src/sass/**/*.scss',
@@ -51,7 +52,9 @@ function ejs_task() {
                 relpath,
             };
         }))
-        .pipe(ejs())
+        .pipe(ejs({
+            site: JSON.parse(fs.readFileSync(`${io_ejs.path}site.json`)),
+        }))
         .pipe(rename({extname: '.html'}))
         .pipe(gulp.dest(io_ejs.dest))
         ;

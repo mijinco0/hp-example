@@ -1,0 +1,15 @@
+<div>
+    <div class="p-date u-mt d-date">
+        <% let date = article.release.split('.'); %>
+        <% if (date.length >= 3) { %>
+            公開日: <%= date[0] %>年<%= date[1] %>月<%= date[2] %>日
+        <% } %>
+
+        <% date = article.lastupdate.split('.'); %>
+        <% if (date.length >= 3) { %>
+            / 最終更新日: <%= date[0] %>年<%= date[1] %>月<%= date[2] %>日
+        <% } %>
+    </div>
+
+    <h2 class="p-headline"><%- article.title %></h2>
+</div>
