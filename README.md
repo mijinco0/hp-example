@@ -22,9 +22,11 @@
 - gulp-rename 2.0.0
 - gulp-sass-glob 1.1.0
 - gulp-sass 5.1.0
+- gulp-data 1.3.1
 - gulp 4.0.2
 - postcss 8.4.27
 - sass 1.64.2
+- fs 0.0.1-security
 
 ### インストール方法
 
@@ -45,6 +47,8 @@ FreeBSD でのインストール方法を記しますが、その他の OS で�
    % npm ls --depth=0
    hp-example@1.0.0 ~/somewhere/hp-example
    ├── css-mqpacker@7.0.0
+   ├── fs@0.0.1-security
+   ├── gulp-data@1.3.1
    ├── gulp-ejs@5.1.0
    ├── gulp-line-ending-corrector@1.0.3
    ├── gulp-postcss@9.0.1
@@ -54,6 +58,19 @@ FreeBSD でのインストール方法を記しますが、その他の OS で�
    ├── gulp@4.0.2
    ├── postcss@8.4.27
    └── sass@1.64.2
+
++-- css-mqpacker@7.0.0
++--
++--
++-- gulp-ejs@5.1.0
++-- gulp-line-ending-corrector@1.0.3
++-- gulp-postcss@9.0.1
++-- gulp-rename@2.0.0
++-- gulp-sass-glob@1.1.0
++-- gulp-sass@5.1.0
++-- gulp@4.0.2
++-- postcss@8.4.27
+`-- sass@1.64.2
    ```
 
 ## コンパイル方法
