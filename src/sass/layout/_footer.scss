@@ -1,9 +1,11 @@
 .l-footer {
     grid-area: footer;
+    height: $footer-height-sp;
 }
 
 @include mq-up("pc") {
     .l-footer {
+        height: $footer-height-pc;
         margin-bottom: $margin-default;
     }
 }

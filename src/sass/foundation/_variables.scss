@@ -15,9 +15,11 @@ $breakpoints-up: (
     "pc": "(min-width: #{$layout-width-max})",
 );
 
-// ヘッダーの高さ
+// ヘッダーとフッターの高さ
 $header-height-sp: 60px;
 $header-height-pc: 60px;
+$footer-height-sp: 30px;
+$footer-height-pc: 30px;
 
 // 色
 $site-color: #FFCC00;

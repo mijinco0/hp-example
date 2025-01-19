@@ -1,4 +1,7 @@
 .p-footer {
     background: $site-color;
     color: $site-color-fg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

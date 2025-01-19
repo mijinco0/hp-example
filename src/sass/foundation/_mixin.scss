@@ -1,6 +1,8 @@
-// メディアクエリ
+﻿// メディアクエリ
 @mixin mq-up($bp: tab) {
-    @media #{map-get($breakpoints-up, $bp)} {
+    // 条件に screen を入れておかないと all と同じ意味になり、
+    // 印刷時にも適用されてしまう
+    @media screen and #{map-get($breakpoints-up, $bp)} {
         @content;
     }
 }

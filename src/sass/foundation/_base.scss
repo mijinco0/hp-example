@@ -22,11 +22,12 @@ body {
         &:hover {
             text-decoration: underline;
         }
-
-        /* 長すぎて画面からはみ出る URL を折り返す*/
-        word-break: break-all;
     }
 
-    /* 英字の文字列がブロックからはみ出るのを回避する */
-    word-break: break-all;
+    /* reset.css の img, picture {display: block} が効いていると、
+       .c-imggrid や .c-imgbox の画像をズームしたときに左寄せになってしまう。
+       原因はよくわからない。暫定的にここで inline に上書きする */
+    img {
+        display: inline;
+    }
 }

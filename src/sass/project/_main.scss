@@ -30,6 +30,7 @@
 .p-toc {
     position: relative;
     margin: 0 $margin-default;
+    margin-top: 10pt;
     padding-top: 1em;
     padding-bottom: $padding-default;
     border: 1px solid $font-color;
@@ -51,17 +52,29 @@
 
 .p-section__headline {
     margin-top: 15px;
-    font-size: 2.0rem;
+    font-size: 2.4rem;
+    font-weight: normal;
 }
 
 .p-section__body {
     margin-top: 5px;
 }
 
+.p-subsection__headline {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 1.8rem;
+    font-weight: normal;
+}
+
+.p-subsection__wideheadline {
+    @extend .p-subsection__headline;
+    margin-top: 30px;
+}
+
 .p-artfooter {
     border-top: solid 2px $site-color;
     padding-top: 5px;
-    display: -webkit-flex;
     display: flex;
     justify-content: space-between;
     align-items: center;
