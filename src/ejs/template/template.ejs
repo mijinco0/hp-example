@@ -12,7 +12,7 @@
 <body>
 
 <div class="l-page">
-    <%- include('_header') %>
+    <%- include(relpath + '_header') %>
 
     <main class="l-main d-main">
         <div class="p-artheader d-artheader">
@@ -135,9 +135,9 @@
             </div>
         </div>
 
-        <%- include('_category') %>
-        <%- include('_newentry') %>
-        <%- include('_siteinfo') %>
+        <%- include(relpath + '_category') %>
+        <%- include(relpath + '_newentry') %>
+        <%- include(relpath + '_siteinfo') %>
 
         <div class="c-adbox p-adbox d-adbox">
             <!-- JavaScript が有効のときだけ "広告" ラベルを表示する -->
@@ -147,7 +147,7 @@
         </div>
     </aside>
 
-    <%- include('_footer') %>
+    <%- include(relpath + '_footer') %>
 </div>
 
 </body>
