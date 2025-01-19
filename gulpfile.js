@@ -40,6 +40,19 @@ const io_ejs = {
 
 /* EJS task */
 function ejs_task() {
+    /* CSS のキャッシュをクリアするため、CSS の読み込みタグにクエリを付加する
+       参考: https://do.gt-gt.org/avoid-cache/
+       クエリはタイムスタンプ (?YYYYMMDDhhmmss) とする */
+    const d = new Date();
+    let cssquery = '?' + String(d.getFullYear()) +
+              String(d.getMonth() + 1).padStart(2, '0') +
+              String(d.getDate()).padStart(2, '0') +
+              String(d.getHours()).padStart(2, '0') +
+              String(d.getMinutes()).padStart(2, '0') +
+              String(d.getSeconds()).padStart(2, '0');
+    cssquery = ""    // CSS クエリをつけたい場合はここをコメントアウト
+    console.log(`css query: ${cssquery}`);
+
     return gulp.src(io_ejs.src)
         .pipe(data(function(ejsfile) {
             let fpath = ejsfile.path.replace(/\\/g, '/');
@@ -50,6 +63,7 @@ function ejs_task() {
             return {
                 abspath,
                 relpath,
+                cssquery,
             };
         }))
         .pipe(ejs({
