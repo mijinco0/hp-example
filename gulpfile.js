@@ -59,10 +59,12 @@ function ejs_task() {
             ejsfile = `${fpath.split(io_ejs.path)[1]}`;
             const abspath = `/${ejsfile.replace('.ejs', '.html').replace(/index\.html$/, '')}`;
             const relpath = '../'.repeat([abspath.split('/').length - 2]);
+            const incpath = relpath;
             console.log("ejsfile=" + ejsfile + ", abspath=" + abspath + ", relpath=" + relpath);
             return {
                 abspath,
                 relpath,
+                incpath,
                 cssquery,
             };
         }))

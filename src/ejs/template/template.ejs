@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<%- include(relpath + '_common_head') %>
+<%- include(incpath + '_common_head') %>
 <% let url = ""; %>
 <title><%- site.article.template.title %></title>
 </head>
 <body>
 
 <div class="l-page">
-    <%- include(relpath + '_header') %>
+    <%- include(incpath + '_header') %>
 
     <main class="l-main d-main">
         <div class="p-artheader d-artheader">
@@ -20,7 +20,7 @@
             </nav>
         </div>
 
-        <%- include(relpath + '_headline', {article: site.article.template}) %>
+        <%- include(incpath + '_headline', {article: site.article.template}) %>
 
         <p class="p-lead d-lead">
             リード文リード文リード文リード文リード文リード文リード文リード文
@@ -131,9 +131,9 @@
             </div>
         </div>
 
-        <%- include(relpath + '_category') %>
-        <%- include(relpath + '_newentry') %>
-        <%- include(relpath + '_siteinfo') %>
+        <%- include(incpath + '_category') %>
+        <%- include(incpath + '_newentry') %>
+        <%- include(incpath + '_siteinfo') %>
 
         <div class="c-adbox p-adbox d-adbox">
             <!-- JavaScript が有効のときだけ "広告" ラベルを表示する -->
@@ -143,7 +143,7 @@
         </div>
     </aside>
 
-    <%- include(relpath + '_footer') %>
+    <%- include(incpath + '_footer') %>
 </div>
 
 </body>
