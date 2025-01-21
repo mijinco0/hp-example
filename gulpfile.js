@@ -8,6 +8,7 @@ const ejs = require('gulp-ejs');
 const rename = require('gulp-rename');
 const data = require('gulp-data');
 const fs = require('fs');
+const path = require('path/posix');
 
 const io_sass = {
     src: 'src/sass/**/*.scss',
@@ -59,8 +60,8 @@ function ejs_task() {
             ejsfile = `${fpath.split(io_ejs.path)[1]}`;
             const abspath = `/${ejsfile.replace('.ejs', '.html').replace(/index\.html$/, '')}`;
             const relpath = '../'.repeat([abspath.split('/').length - 2]);
-            const incpath = relpath;
-            console.log("ejsfile=" + ejsfile + ", abspath=" + abspath + ", relpath=" + relpath);
+            const incpath = path.join(relpath, '_parts/');    // 末尾に「/」が付くことを保証する
+            console.log(`ejsfile=${ejsfile}, abspath=${abspath}, relpath=${relpath}, incpath=${incpath}`);
             return {
                 abspath,
                 relpath,
