@@ -1,2 +1,4 @@
 # key, name, dirname, index
+animal, "動物愛護", "animal",
+gourmet, "グルメ", "gourmet",
 template, "テンプレート", "template", false

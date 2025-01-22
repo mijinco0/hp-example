@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<%- include($.path.include + '_common_head') %>
+<% let ln, url; %>
+<title><%- $.article.title %></title>
+</head>
+<body>
+
+<div class="l-page">
+    <%- include($.path.include + '_header') %>
+
+    <main class="l-main d-main">
+        <div class="p-artheader d-artheader">
+            <%- include($.path.include + '_nav', {article: $.article}) %>
+        </div>
+
+        <%- include($.path.include + '_headline', {article: $.article}) %>
+
+        <p class="p-lead d-lead">
+            リード文リード文リード文リード文リード文リード文リード文リード文
+            lead lead lead lead lead lead lead lead lead lead lead lead
+            リード文リード文リード文リード文リード文リード文リード文リード文
+            lead lead lead lead lead lead lead lead lead lead lead lead
+        </p>
+
+        <div class="p-toc d-toc">
+            <h3 class="p-toc__label d-toc__label">目次</h3>
+            <div class="p-toc__body d-toc__body">
+                <ul class="c-itemize--disc">
+                    <li>
+                        hogehogehogehogehogehogehogehogeほげほげほげほげほげほげほげげほげほげほげほ
+                        げほげほげほげほげほげほげほげほげほげほげほげほ
+                    </li>
+                    <li>fugafugafugafugafugafuga</li>
+                    <li>piyopiyopiyopiyopiyopiyopiyopiyopiyo</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="p-section d-section">
+            <h3 id="section1" class="p-section__headline">小見出し1</h3>
+            <p class="p-section__body">
+                section1の本文です<sup><a href="#note01">1)</a></sup>。section1の本文です。section1の本文です。section1の本文です。
+                section1の本文です。section1の本文です。section1の本文です。section1の本文です。
+                section1の本文です。section1の本文です。section1の本文です。section1の本文です。
+                section1の本文です。section1の本文です。section1の本文です。section1の本文です。
+                section1の本文です。section1の本文です。section1の本文です。section1の本文です<sup><a href="#note02">2)</a></sup>。
+                section1の本文です。section1の本文です。section1の本文です。section1の本文です。
+            </p>
+            <ol class="c-footnote">
+                <li id="note01">
+                    脚注のテスト1脚注のテスト1脚注のテスト1脚注のテスト1脚注のテスト1脚注のテスト1
+                    脚注のテスト1脚注のテスト1脚注のテスト1脚注のテスト1脚注のテスト1脚注のテスト1
+                </li>
+                <li id="note02">
+                    脚注のテスト2脚注のテスト2脚注のテスト2脚注のテスト2脚注のテスト2脚注のテスト2
+                    脚注のテスト2脚注のテスト2脚注のテスト2脚注のテスト2脚注のテスト2脚注のテスト2
+                </li>
+            </ol>
+        </section>
+
+        <section class="p-section d-section">
+            <h3 id="section2" class="p-section__headline">小見出し2</h3>
+            <p class="p-section__body">
+                section2の本文であります。section2の本文であります。section2の本文であります。
+                <% url = "#"; %>
+                <div class="c-linkblock">
+                    <a href="<%- url %>">別行立てリンク (中央寄せ) のテスト</a>
+                </div>
+                section2の本文であります。section2の本文であります。section2の本文であります。
+                section2の本文であります。section2の本文であります。section2の本文であります。
+                section2の本文であります。section2の本文であります。section2の本文であります。
+                section2の本文であります。section2の本文であります。section2の本文であります。
+                <div class="c-linkblock--left">
+                    <a href="<%- url %>">別行立てリンク (左寄せ) のテスト</a>
+                </div>
+                section2の本文であります。section2の本文であります。section2の本文であります。
+                section2の本文であります。section2の本文であります。section2の本文であります。
+                section2の本文であります。section2の本文であります。section2の本文であります。
+
+                <ul class="c-itemize--disc u-mt5">
+                    <li>箇条書きのテスト1</li>
+                    <li>
+                        箇条書きのテスト2 箇条書きのテスト2 箇条書きのテスト2 箇条書きのテスト2
+                        箇条書きのテスト2 箇条書きのテスト2 箇条書きのテスト2 箇条書きのテスト2
+                    </li>
+                    <li>
+                        箇条書きのテスト3 ついでに
+                        <div class="c-linkblock--left">
+                            <a href="<%- url %>">箇条書きの中で別行立てリンクのテスト</a>
+                        </div>
+                    </li>
+                </ul>
+            </p>
+
+            <p class="u-mt20">他記事へのリンクの実験:</p>
+            <% ln = $.linkto($.category.key, 'matsutake'); %>
+            <div class="c-linkblock--left">
+                <a href="<%- ln.url %>" class="u-wb"><%- ln.title %></a>
+            </div>
+
+            <% ln = $.linkto($.category.key, 'matsutake', 'section2'); %>
+            <div class="c-linkblock--left">
+                <a href="<%- ln.url %>" class="u-wb"><%- ln.title %></a>
+            </div>
+        </section>
+
+        <div class="p-artfooter d-artfooter">
+            <%- include($.path.include + '_nav', {article: $.article}) %>
+
+            <div class="p-goto-arttop d-goto-arttop">
+                <a class="u-nodeco" href="#">▲</a>
+            </div>
+        </div>
+
+        <div class="c-adbox p-adbox d-adbox">
+            <!-- JavaScript が有効のときだけ "広告" ラベルを表示する -->
+            <script>document.write('<p class="c-adbox__label d-adbox__label">広告</p>');</script>
+            <div class="c-adbox__body d-adbox__body">
+            </div>
+        </div>
+    </main>
+
+    <aside class="l-sidebar d-sidebar">
+        <div class="c-adbox p-adbox-pc d-adbox">
+            <!-- JavaScript が有効のときだけ "広告" ラベルを表示する -->
+            <script>document.write('<p class="c-adbox__label d-adbox__label">広告</p>');</script>
+            <div class="c-adbox__body d-adbox__body">
+            </div>
+        </div>
+
+        <%- include($.path.include + '_category') %>
+        <%- include($.path.include + '_newentry') %>
+        <%- include($.path.include + '_siteinfo') %>
+
+        <div class="c-adbox p-adbox d-adbox">
+            <!-- JavaScript が有効のときだけ "広告" ラベルを表示する -->
+            <script>document.write('<p class="c-adbox__label d-adbox__label">広告</p>');</script>
+            <div class="c-adbox__body d-adbox__body">
+            </div>
+        </div>
+    </aside>
+
+    <%- include($.path.include + '_footer') %>
+</div>
+
+</body>
+</html>

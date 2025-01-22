@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<%- include($.path.include + '_common_head') %>
+<title><%- $.site.name() %></title>
+</head>
+<body>
+
+<%# すべてのカテゴリーの見出しを作る。ただし index プロパティが false のカテゴリーは除く %>
+<%
+    const makeCategories = (br = '\r\n') => {
+        let result = "";
+        for (const cat of $.site.categories()) {
+            if (!cat.index) continue;
+            result += `${makeCategory(cat, br)}`
+        }
+        return result;
+    };
+%>
+
+<%# 各カテゴリーの記事へのリンクを作る %>
+<%
+    const makeCategory = (cat, br) => {
+        let result = `<section class="p-section u-mt20 d-section">${br}`;
+        result += `<h4 id=\"${cat.key}\" class=\"p-subsection__headline\">${cat.name}</h4>${br}`;
+        result += `<ul class=\"c-itemize--disc u-mt5\">${br}`;
+
+        for (const art of $.site.articles(cat.key)) {
+            let item = `<li>`;
+            item += `<a href=\"${$.join($.path.toRoot, cat.dirname, art.fname)}\">`;
+            item += `${art.title}`;
+            item += `</a></li>${br}`;
+            result += item;
+        }
+
+        result += `</ul>${br}`;
+        result += `</section>${br}`;
+
+        return result;
+    };
+%>
+
+<div class="l-page">
+    <%- include($.path.include + '_header') %>
+
+    <main class="l-main d-main">
+        <%- makeCategories(); %>
+
+        <div class="p-artfooter d-artfooter">
+            <div></div>  <!-- dummy -->
+            <div class="p-goto-arttop d-goto-arttop">
+                <a class="u-nodeco" href="#">▲</a>
+            </div>
+        </div>
+    </main>
+
+    <aside class="l-sidebar d-sidebar">
+        <%- include($.path.include + '_category') %>
+        <%- include($.path.include + '_newentry') %>
+        <%- include($.path.include + '_siteinfo') %>
+    </aside>
+
+    <%- include($.path.include + '_footer') %>
+</div>
+
+</body>
+</html>

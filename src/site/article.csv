@@ -1,3 +1,9 @@
 # key, category, title, release, lastmod, fname, sitemap
+# animal/
+dachshund, animal, "ミニチュア・ダックスフンドについて", 2025-01-01, 2025-04-01, "dachshund.html",
+dogs_vs_cats, animal, "「イヌ派 vs ネコ派」について", 2025-02-01, 2025-02-28, "dogs_vs_cats.html",
+# gourmet/
+sanma, gourmet, "秋刀魚の塩焼きについて", 2025-01-01,, "sanma.html",
+matsutake, gourmet, "松茸のお吸い物について", 2025-03-01, 2025-03-02, "matsutake.html",
 # template/
 template, template, "テンプレートの見出し", 20XX-XX-XX, 20XX-XX-YY, "template.html", false
