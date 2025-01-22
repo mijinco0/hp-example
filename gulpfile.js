@@ -62,8 +62,11 @@ function ejs_task() {
         'src/site/article.csv',
     );
 
+    const newentries = makeNewEntries(site);    // 新しめの記事一覧を作る (パイプライン実行前に 1 回だけ)
+
     const ejsdata = {
         site: site,
+        newEntries: newentries,
         cssQuery: cssquery,
 
         // よく使う関数に別名をつける
@@ -94,6 +97,29 @@ function ejs_task() {
         .pipe(rename({extname: '.html'}))
         .pipe(gulp.dest(io_ejs.dest))
         ;
+}
+
+/**
+ * 新しめの記事一覧を作る
+ * @param {number} n - 記事数の上限
+ * @param {boolean} lmod - true とき、最終更新日でソートする
+ */
+function makeNewEntries(site, n = 10, lmod = false) {
+    const num = (art, lmod) => {
+        const date = (lmod && art.lastmod !== '') ? art.lastmod : art.release;
+        return Number(date.replaceAll('-', ''));
+    };
+
+    const entries = [];
+    for (const cat of site.categories()) {
+        if (!cat.index) continue;
+        for (const arts of site.articles(cat.key)) {
+            entries.push(arts);
+        }
+    }
+    entries.sort((a, b) => { return num(b, lmod) - num(a, lmod); });
+
+    return entries.slice(0, n);
 }
 
 const io_css = {
