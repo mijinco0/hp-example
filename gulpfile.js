@@ -69,6 +69,7 @@ function ejs_task() {
         // よく使う関数に別名をつける
         linkto: site.linkto,
         join: Util.pathJoin,
+        w3tojp: Util.w3dateToJpStyle,
     };
 
     return gulp.src(io_ejs.src)

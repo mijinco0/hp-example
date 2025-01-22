@@ -65,6 +65,16 @@ module.exports = class Util {
     }
 
     /**
+     * W3 Datetime 形式の日付 "YYYY-MM-DD" を "YYYY年MM月DD日" に変換する
+     */
+    static w3dateToJpStyle(w3date, prefix = "", suffix = "") {
+        const date = w3date.split('-');
+        if (date.length < 3) return "";
+        const result = `${date[0]}年${Number(date[1])}月${Number(date[2])}日`;
+        return `${prefix}${result}${suffix}`;
+    }
+
+    /**
      * file の拡張子を to に置換する
      */
     static replaceExt(file, to) {

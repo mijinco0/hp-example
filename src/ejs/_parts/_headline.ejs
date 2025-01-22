@@ -1,14 +1,7 @@
 <div>
     <div class="p-date u-mt d-date">
-        <% let date = article.release.split('-'); %>
-        <% if (date.length >= 3) { %>
-            公開日: <%= date[0] %>年<%= date[1] %>月<%= date[2] %>日
-        <% } %>
-
-        <% date = article.lastmod.split('-'); %>
-        <% if (date.length >= 3) { %>
-            / 最終更新日: <%= date[0] %>年<%= date[1] %>月<%= date[2] %>日
-        <% } %>
+        <%= $.w3tojp(article.release, "公開日: "); %><!--
+        --><%= $.w3tojp(article.lastmod, " / 最終更新日: "); %>
     </div>
 
     <h2 class="p-headline"><%- article.title %></h2>
