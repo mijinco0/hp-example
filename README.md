@@ -6,9 +6,9 @@
 - レスポンシブにも一応対応していると思います。
 - Sass の設計手法として FLOCSS を (ゆるく) 取り入れています。
 - HTML のうち、使い回しが効きそうな部分は部品化して本体にインクルードするようにしました。
-- コンパイルすると public/ ディレクトリの下に template.html と css/style.css が生成されます。
+- コンパイルすると public/ ディレクトリの下に HTML ファイルと css/style.css が生成されます。
 - リセット CSS は [A modern CSS reset](https://github.com/Andy-set-studio/modern-css-reset/) を使わせていただいています。
-- 数年前に仕入れた知識で作成したため、2023 年現在では陳腐化しているかもしれません。
+- 数年前に仕入れた知識で作成したため、2025 年現在では陳腐化しているかもしれません。
 
 ## 開発環境
 
@@ -58,19 +58,6 @@ FreeBSD でのインストール方法を記しますが、その他の OS で�
    ├── gulp@4.0.2
    ├── postcss@8.4.27
    └── sass@1.64.2
-
-+-- css-mqpacker@7.0.0
-+--
-+--
-+-- gulp-ejs@5.1.0
-+-- gulp-line-ending-corrector@1.0.3
-+-- gulp-postcss@9.0.1
-+-- gulp-rename@2.0.0
-+-- gulp-sass-glob@1.1.0
-+-- gulp-sass@5.1.0
-+-- gulp@4.0.2
-+-- postcss@8.4.27
-`-- sass@1.64.2
    ```
 
 ## コンパイル方法
@@ -79,5 +66,3 @@ FreeBSD でのインストール方法を記しますが、その他の OS で�
 % cd ~/somewhere/hp-example/
 % npx gulp
 ```
-
-public ディレクトリの下に生成される template.html が目的の HTML ファイルです。
