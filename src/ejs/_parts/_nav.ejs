@@ -1,0 +1,8 @@
+<% const cat = $.category; %>
+<nav class="p-nav d-nav">
+    <ol>
+        <li><a href="<%- $.join($.path.toRoot, 'index.html'); %>">Home</a></li>
+        <li><a href="<%- $.join($.path.toRoot, 'index.html#' + cat.key); %>"><%- cat.name %></a></li>
+        <li><%- article.title %></li>
+    </ol>
+</nav>

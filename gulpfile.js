@@ -65,6 +65,9 @@ function ejs_task() {
     const ejsdata = {
         site: site,
         cssQuery: cssquery,
+
+        // よく使う関数に別名をつける
+        join: Util.pathJoin,
     };
 
     return gulp.src(io_ejs.src)
