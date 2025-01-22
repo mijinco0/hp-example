@@ -1,13 +1,16 @@
+<%
+    const makeItems = (br = '\r\n') => {
+        let items = '';
+        for (const cat of $.site.categories()) {
+            if (!cat.index) continue;
+            items += `<li><a href=\"${$.join($.path.toRoot, 'index.html#' + cat.key)}\">${cat.name}</a></li>${br}`
+        }
+        return items;
+    };
+-%>
 <div class="c-itembox p-itembox d-itembox">
     <div class="c-itembox__label p-itembox__label">カテゴリー</div>
     <ul class="c-itembox__body">
-        <li><a href="#">カテゴリーカテゴリーカテゴリーカテゴリーカテゴリー</a></li>
-        <li><a href="#">カテ カテ カテ カテ カテ カテ カテ カテ カテ カテ </a></li>
-        <li>
-            <a href="#">
-                ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ
-                ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ ゴリ
-            </a>
-        </li>
+        <%- makeItems(); -%>
     </ul>
 </div>
