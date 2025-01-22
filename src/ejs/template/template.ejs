@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <%- include($.path.include + '_common_head') %>
-<% let url = ""; %>
+<% let ln, url; %>
 <title><%- $.article.title %></title>
 </head>
 <body>
@@ -39,7 +39,7 @@
         </div>
 
         <section class="p-section d-section">
-            <h3 class="p-section__headline">小見出し1</h3>
+            <h3 id="section1" class="p-section__headline">小見出し1</h3>
             <p class="p-section__body">
                 section1の本文です<sup><a href="#note01">1)</a></sup>。section1の本文です。section1の本文です。section1の本文です。
                 section1の本文です。section1の本文です。section1の本文です。section1の本文です。
@@ -61,7 +61,7 @@
         </section>
 
         <section class="p-section d-section">
-            <h3 class="p-section__headline">小見出し2</h3>
+            <h3 id="section2" class="p-section__headline">小見出し2</h3>
             <p class="p-section__body">
                 section2の本文であります。section2の本文であります。section2の本文であります。
                 <% url = "#"; %>
@@ -93,6 +93,17 @@
                     </li>
                 </ul>
             </p>
+
+            <p class="u-mt20">他記事へのリンクの実験:</p>
+            <% ln = $.linkto('template', 'template'); %>
+            <div class="c-linkblock--left">
+                <a href="<%- ln.url %>" class="u-wb"><%- ln.title %></a>
+            </div>
+
+            <% ln = $.linkto('template', 'template', 'section1'); %>
+            <div class="c-linkblock--left">
+                <a href="<%- ln.url %>" class="u-wb"><%- ln.title %></a>
+            </div>
         </section>
 
         <div class="p-artfooter d-artfooter">

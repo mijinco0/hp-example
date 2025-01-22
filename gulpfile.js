@@ -67,6 +67,7 @@ function ejs_task() {
         cssQuery: cssquery,
 
         // よく使う関数に別名をつける
+        linkto: site.linkto,
         join: Util.pathJoin,
     };
 
