@@ -9,6 +9,8 @@ const rename = require('gulp-rename');
 const data = require('gulp-data');
 const fs = require('fs');
 const path = require('path/posix');
+const Site = require('./builder/site');
+const Util = require('./builder/util');
 
 const io_sass = {
     src: 'src/sass/**/*.scss',
@@ -54,20 +56,29 @@ function ejs_task() {
     cssquery = ""    // CSS クエリをつけたい場合はここをコメントアウト
     console.log(`css query: ${cssquery}`);
 
+    const site = new Site(
+        'src/site/base.json',
+        'src/site/category.csv',
+        'src/site/article.csv',
+    );
+
     const ejsdata = {
-        site: JSON.parse(fs.readFileSync(`${io_ejs.path}site.json`)),
+        site: site,
         cssQuery: cssquery,
     };
 
     return gulp.src(io_ejs.src)
         .pipe(data(function(ejsfile) {
-            let fpath = ejsfile.path.replace(/\\/g, '/');
-            ejsfile = `${fpath.split(io_ejs.path)[1]}`;
-            const fromrt = `/${ejsfile.replace('.ejs', '.html').replace(/index\.html$/, '')}`;
-            const tort = '../'.repeat([fromrt.split('/').length - 2]);
-            const inc = path.join(tort, '_parts/');    // 末尾に「/」が付くことを保証する
-            console.log(`ejsfile=${ejsfile}, fromRoot=${fromrt}, toRoot=${tort}, inc=${inc}`);
+            const fpath = ejsfile.path.replace(/\\/g, '/');
+            const htmlpath = Util.replaceExt(fpath, '.html');
+            const a = ejsdata.site.articleByPath(htmlpath);
+            const fromrt = a ? ejsdata.site.pathFromRoot(a.category.key, a.key) : '/';
+            const tort = a ? ejsdata.site.pathToRoot(a.category.key, a.key) : '';
+            const inc = path.join(tort, "_parts/");    // 末尾に「/」が付くことを保証する
+            console.log(`ejsfile=${path.basename(fpath)}, fromRoot=${fromrt}, toRoot=${tort}, inc=${inc}`);
 
+            ejsdata.article = a;
+            ejsdata.category = a ? a.category : undefined;
             ejsdata.path = {
                 fromRoot: fromrt,
                 toRoot: tort,

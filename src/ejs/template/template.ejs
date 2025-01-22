@@ -3,7 +3,7 @@
 <head>
 <%- include($.path.include + '_common_head') %>
 <% let url = ""; %>
-<title><%- $.site.article.template.title %></title>
+<title><%- $.article.title %></title>
 </head>
 <body>
 
@@ -20,7 +20,7 @@
             </nav>
         </div>
 
-        <%- include($.path.include + '_headline', {article: $.site.article.template}) %>
+        <%- include($.path.include + '_headline', {article: $.article}) %>
 
         <p class="p-lead d-lead">
             リード文リード文リード文リード文リード文リード文リード文リード文

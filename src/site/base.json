@@ -1,0 +1,22 @@
+{
+    "name": "hp-example.com",
+    "assets": {
+        "meta": {
+            "dirname": "assets"
+        },
+        "assets": {
+            "css": {
+                "dirname": "css"
+            },
+            "images": {
+                "dirname": "images"
+            },
+            "js": {
+                "dirname": "js"
+            },
+            "lib": {
+                "dirname": "lib"
+            }
+        }
+    }
+}
