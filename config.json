@@ -1,5 +1,5 @@
 {
-    "srcRoot": "$HOME/gitroot/hp-example/src",
+    "srcRoot": "$CWD/src",
     "dstRoot": "$CWD/public",
     "siteStructureFile": {
         "base": "site/base.json",
