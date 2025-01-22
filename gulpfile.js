@@ -54,24 +54,27 @@ function ejs_task() {
     cssquery = ""    // CSS クエリをつけたい場合はここをコメントアウト
     console.log(`css query: ${cssquery}`);
 
+    const ejsdata = {
+        site: JSON.parse(fs.readFileSync(`${io_ejs.path}site.json`)),
+        cssQuery: cssquery,
+    };
+
     return gulp.src(io_ejs.src)
         .pipe(data(function(ejsfile) {
             let fpath = ejsfile.path.replace(/\\/g, '/');
             ejsfile = `${fpath.split(io_ejs.path)[1]}`;
-            const abspath = `/${ejsfile.replace('.ejs', '.html').replace(/index\.html$/, '')}`;
-            const relpath = '../'.repeat([abspath.split('/').length - 2]);
-            const incpath = path.join(relpath, '_parts/');    // 末尾に「/」が付くことを保証する
-            console.log(`ejsfile=${ejsfile}, abspath=${abspath}, relpath=${relpath}, incpath=${incpath}`);
-            return {
-                abspath,
-                relpath,
-                incpath,
-                cssquery,
+            const fromrt = `/${ejsfile.replace('.ejs', '.html').replace(/index\.html$/, '')}`;
+            const tort = '../'.repeat([fromrt.split('/').length - 2]);
+            const inc = path.join(tort, '_parts/');    // 末尾に「/」が付くことを保証する
+            console.log(`ejsfile=${ejsfile}, fromRoot=${fromrt}, toRoot=${tort}, inc=${inc}`);
+
+            ejsdata.path = {
+                fromRoot: fromrt,
+                toRoot: tort,
+                include: inc,
             };
         }))
-        .pipe(ejs({
-            site: JSON.parse(fs.readFileSync(`${io_ejs.path}site.json`)),
-        }))
+        .pipe(ejs({$: ejsdata}))
         .pipe(rename({extname: '.html'}))
         .pipe(gulp.dest(io_ejs.dest))
         ;
