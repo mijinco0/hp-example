@@ -4,14 +4,14 @@
 
 "use strict";
 
-const fs = require("node:fs");
-const path = require('path/posix');
-const Util = require("./util.js");
+import fs from "node:fs";
+import path from "path/posix";
+import Util from "./util.js"
 
 /**
  * サイト構造を保持するオブジェクトを構築するためのクラス
  */
-module.exports = class Site {
+export default class Site {
     // 公開したいメソッドを、クラスフィールドで指定したアロー関数から呼び出す
     // 参考: https://jsprimer.net/basic/class/#this-in-class-fields
     name = () => { return this.#name(); };

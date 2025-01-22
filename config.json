@@ -1,0 +1,64 @@
+{
+    "srcRoot": "$HOME/gitroot/hp-example/src",
+    "dstRoot": "$CWD/public",
+    "siteStructureFile": {
+        "base": "site/base.json",
+        "category": "site/category.csv",
+        "article": "site/article.csv"
+    },
+    "task": {
+        "ejs": {
+            "src": "ejs",
+            "inc": "ejs/_parts",
+            "dst": "",
+            "patterns": [
+                "**/*.ejs",
+                "!**/_*.ejs",
+                "!template.ejs"
+            ]
+        },
+        "sass": {
+            "src": "sass",
+            "dst": "css/style.css",
+            "patterns": [
+                "style.scss"
+            ]
+        },
+        "js": {
+            "src": "dummy_js",
+            "dst": "dummy_assets/dummy_js",
+            "patterns": [
+                "**/*.js"
+            ]
+        },
+        "sitemap": {
+            "dst": "sitemap.xml",
+            "lineBreak": "\r\n"
+        },
+        "copy": [
+            {
+                "from": "dummy_assets",
+                "to": "",
+                "patterns": null
+            },
+            {
+                "from": "css",
+                "to": "css",
+                "patterns": ["*.css"]
+            },
+            {
+                "from": "",
+                "to": "",
+                "patterns": ["dummy_robots.txt", "dummy_ads.txt", "!_*"]
+            },
+            {
+                "from": "dummy_google-site-verification.html",
+                "to": "",
+                "patterns": null
+            }
+        ]
+    },
+    "cssQuery": false,
+    "release": false,
+    "site": null
+}

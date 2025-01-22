@@ -7,11 +7,11 @@
 
 "use strict";
 
-//import { openSync, closeSync, opendirSync } from "node:fs";
-const fs = require("node:fs");
-const path = require("path/posix");
+import path from "path/posix";
+import { openSync, closeSync, opendirSync } from "node:fs";
+import { glob } from "glob";
 
-module.exports = class Util {
+export default class Util {
     /**
      * POSIX 形式のパスを返す
      */
@@ -32,6 +32,17 @@ module.exports = class Util {
     }
 
     /**
+     * パスの解析 \
+     * 先頭に "$HOME" または "$CWD" が含まれていたらそれぞれ process.env.HOME、process.cwd() に置換する
+     */
+    static pathExpand(p) {
+        p = p.replace("$HOME", process.env.HOME);
+        p = p.replace("$CWD", process.cwd());
+        p = this.posixPath(p);
+        return p;
+    }
+
+    /**
      * ファイルの存在確認 \
      * fs.stat() や fs.access() は使用せず、直接 fs.open() してエラーハンドリングせよとのこと \
      * https://nodejs.org/api/fs.html#fsaccesspath-mode-callback \
@@ -46,7 +57,7 @@ module.exports = class Util {
         if (p.endsWith("/")) {
             // ディレクトリの場合
             try {
-                const dir = fs.opendirSync(p);
+                const dir = opendirSync(p);
                 dir.closeSync();
             } catch {
                 return false;
@@ -54,8 +65,8 @@ module.exports = class Util {
         } else {
             // ファイルの場合
             try {
-                const fd = fs.openSync(p, 'r');
-                if (fd) fs.closeSync(fd);
+                const fd = openSync(p, 'r');
+                if (fd) closeSync(fd);
             } catch {
                 return false;
             }
@@ -82,6 +93,32 @@ module.exports = class Util {
     }
 
     /**
+     * npm の glob.glob() の拡張版 \
+     * 拾うパターンと無視するパターンをまとめて配列で渡せる \
+     * @param {string[]} patterns - パターンの配列。無視するパターンには先頭に "!" をつける
+     * @param {string} cwd - グロブの起点となるディレクトリへのパス
+     * @returns {string[]} files - グロブの結果 (パスの区切りは POSIX)
+     */
+    static async glob(patterns, cwd) {
+        const pass = [];
+        const option = {
+            cwd: this.posixPath(cwd),    // npm の glob は POSIX 形式じゃないと受け付けてくれないらしい
+            ignore: [],
+        };
+
+        for (const p of patterns) {
+            if (p.startsWith("!")) {
+                option.ignore.push(p.replace("!", ""));
+            } else {
+                pass.push(p);
+            }
+        }
+
+        const files = await glob(pass, option);
+        return files.map(val => this.posixPath(val));
+    }
+
+    /**
      * CSV 文字列を解析する \
      * - "#" で始まる行と空行は無視する \
      * - フィールドの値を囲むダブルクォーテーションは削除する \
@@ -101,6 +138,24 @@ module.exports = class Util {
         }
 
         return records;
+    }
+
+    /**
+     * テキストを加工して返す
+     * @param {string} text - 加工前のテキスト
+     * @param {object} filters - Filter 型の連想配列
+     * @returns {string} - 加工後のテキスト
+     *
+     * @typedef Filter
+     * @property {function} fn - 加工処理が書かれた関数
+     * @property {*} data - fn() に渡すユーザーデータ
+     * @property {*} options - fn() から呼び出す API に渡すオプション
+     */
+    static async pipeline(text, filters = {}) {
+        for (const f of Object.values(filters)) {
+            text = await f.fn(text, f.data, f.options);
+        }
+        return text;
     }
 
     /**
