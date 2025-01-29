@@ -10,6 +10,7 @@
 import path from "path/posix";
 import { openSync, closeSync, opendirSync } from "node:fs";
 import { glob } from "glob";
+import csv from "./csv.js";
 
 export default class Util {
     /**
@@ -119,25 +120,12 @@ export default class Util {
     }
 
     /**
-     * CSV 文字列を解析する \
-     * - "#" で始まる行と空行は無視する \
-     * - フィールドの値を囲むダブルクォーテーションは削除する \
-     * - フィールドの値の前後の空白は削除する \
+     * CSV 文字列を解析する
      * @param {string} text - CSV 文字列
-     * @returns {string[string[]]} records
+     * @returns - レコードまたはレコードの配列
      */
     static parseCsv(text) {
-        const br = text.includes("\r\n") ? "\r\n" : "\n";
-        const lines = text.split(br);
-        const records = [];
-
-        for (const line of lines) {
-            if (line.startsWith("#") || line === "") continue;
-            const fields = line.split(",");
-            records.push(fields.map((f) => f.trim().replaceAll("\"", "")));
-        }
-
-        return records;
+        return csv.parse(text);
     }
 
     /**
