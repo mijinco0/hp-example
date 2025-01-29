@@ -164,7 +164,7 @@ class RenderData {
     /**
      * 新しめの記事一覧を作る
      * @param {number} n - 記事数の上限
-     * @param {boolean} lmod - true とき、最終更新日でソートする
+     * @param {boolean} lmod - true のとき、最終更新日でソートする
      */
     #makeNewEntries(n = 10, lmod = false) {
         const num = (art, lmod) => {
