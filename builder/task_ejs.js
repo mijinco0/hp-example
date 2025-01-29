@@ -136,12 +136,26 @@ class RenderData {
 
         // HTML ファイルのルートディレクトリとの位置関係を求める
         const fhtml = Util.replaceExt(fejs, ".html");
+        const root = "/";
+
+        // このファイルのルートからのパス / ルートへのパスを求める
+        let fromrt, tort;
+        if (path.basename(fhtml) === "index.html") {    // index.html のルートからのパスは "/" とする
+            fromrt = root;
+            tort = "";
+        } else {
+            fromrt = path.join(root, fhtml);
+            tort = path.relative(path.dirname(fromrt), root);
+            if (!tort.endsWith("/")) tort += "/";
+        }
+        dat.path.fromRoot = fromrt;
+        dat.path.toRoot = tort;
+        console.log(`${fejs}, ejsfile=${path.basename(fejs)}, fromRoot=${fromrt}, toRoot=${tort}`);
+
+        // 記事とカテゴリーのメタ情報を取得する
         const a = site.articleByPath(fhtml);
         dat.article = a;
         dat.category = a ? a.category : undefined;
-        dat.path.fromRoot = a ? site.pathFromRoot(a.category.key, a.key) : "/";
-        dat.path.toRoot = a ? site.pathToRoot(a.category.key, a.key) : "";
-        console.log(`${path.basename(fejs)}, fromRoot=${dat.path.fromRoot}, toRoot=${dat.path.toRoot}`);
 
         // render() に渡すオプションをセット
         this.#opt.filename = fejs;

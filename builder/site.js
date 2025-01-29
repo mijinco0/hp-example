@@ -15,14 +15,10 @@ export default class Site {
     // 公開したいメソッドを、クラスフィールドで指定したアロー関数から呼び出す
     // 参考: https://jsprimer.net/basic/class/#this-in-class-fields
     name = () => { return this.#name(); };
-    categories = () => { return this.#categories(); };
-    category = (catkey) => { return this.#category(catkey); };
-    articles = (catkey) => { return this.#articles(catkey); };
-    articleByKey = (catkey, artkey) => { return this.#articleByKey(catkey, artkey); };
+    categories = (catkey = undefined) => { return this.#categories(catkey); };
+    articles = (catkey, artkey = undefined) => { return this.#articles(catkey, artkey); };
     articleByPath = (htmlpath) => { return this.#articleByPath(htmlpath); };
     paths = (key = undefined) => { return this.#paths(key); };
-    pathFromRoot = (catkey, artkey) => { return this.#pathFromRoot(catkey, artkey); };
-    pathToRoot = (catkey, artkey) => { return this.#pathToRoot(catkey, artkey); };
     linkto = (catkey, artkey, id = undefined) => { return this.#linkto(catkey, artkey, id); };
     print = (obj = this.#site, indent = " ".repeat(4)) => { return this.#print(obj, indent); };
 
@@ -56,41 +52,32 @@ export default class Site {
     }
 
     /**
-     * すべてのカテゴリーのメタ情報を配列にして返す
+     * カテゴリーのメタ情報を返す
+     * @param {string} catkey - カテゴリーを指定するためのキー。省略された場合は全カテゴリーが対象
      */
-    #categories() {
-        return Object.values(this.#site.categories).map((c) => c.meta);
+    #categories(catkey = undefined) {
+        const cat = this.#site.categories;
+        return catkey ? cat[catkey].meta : Object.values(cat).map((c) => c.meta);
     }
 
     /**
-     * 指定されたカテゴリーのメタ情報を返す
+     * 記事のメタ情報を返す
+     * @param {string} catkey - カテゴリーを指定するためのキー
+     * @param {string} artkey - 記事を指定するためのキー。省略された場合は全記事が対象
      */
-    #category(catkey) {
-        return this.#site.categories[catkey].meta;
-    }
+    #articles(catkey, artkey = undefined) {
+        const cat = this.#site.categories[catkey];
+        if (!cat || !Object.prototype.hasOwnProperty.call(cat, "articles")) return undefined;
 
-    /**
-     * 指定されたカテゴリーにあるすべての記事のメタ情報を配列にして返す
-     */
-    #articles(catkey) {
-        const c = this.#site.categories[catkey];
-        const arts = Object.values(c.articles);
-        return  arts.map((a) => { a.category = c.meta; return a; });
-    }
+        if (!artkey) {
+            const arts = Object.values(cat.articles);
+            return  arts.map((a) => { a.category = cat.meta; return a; });
+        }
 
-    /**
-     * 「カテゴリーキー + 記事キー」で指定された記事のメタ情報を返す \
-     * category プロパティにはその記事が属するカテゴリーのメタ情報を格納する \
-     */
-    #articleByKey(catkey, artkey) {
-        const c = this.#site.categories[catkey];
-        if (!c || !Object.prototype.hasOwnProperty.call(c, "articles")) return undefined;
-
-        const a = c.articles[artkey];
-        if (!a) return undefined;
-        a.category = c.meta;
-
-        return a;
+        const art = cat.articles[artkey];
+        if (!art) return undefined;
+        art.category = cat.meta;
+        return art;
     }
 
     /**
@@ -113,31 +100,6 @@ export default class Site {
     }
 
     /**
-     * ルートから記事の HTML ファイルへのパスを返す
-     */
-    #pathFromRoot(catkey, artkey) {
-        let ret = "/";
-        const a = this.articleByKey(catkey, artkey);
-        if (a) {
-            ret = path.join(ret, a.category.dirname, a.fname);
-        }
-        return ret;
-    }
-
-    /**
-     * 記事が属するカテゴリーのディレクトリからルートへのパスを返す \
-     * カテゴリーが 1 階層しかない前提での簡易的な実装
-     */
-    #pathToRoot(catkey, artkey) {
-        let ret = "";
-        const a = this.articleByKey(catkey, artkey);
-        if (a) {
-            ret = "../";
-        }
-        return ret;
-    }
-
-    /**
      * アセット等へのパスを返す
      * @param {string} key
      */
@@ -154,11 +116,24 @@ export default class Site {
      */
     #linkto(catkey, artkey, id = undefined) {
         const ret = { title: "", url: "" };
-        const a = this.articleByKey(catkey, artkey);
+        const a = this.articles(catkey, artkey);
         if (a) {
             ret.title = a.title;
-            const toroot = this.pathToRoot(catkey, artkey);
+            const toroot = this.#pathToRoot(catkey, artkey);
             ret.url = Util.pathJoin(toroot, a.category.dirname, a.fname) + (id ? '#' + id : '');
+        }
+        return ret;
+    }
+
+    /**
+     * 記事が属するカテゴリーのディレクトリからルートへのパスを返す \
+     * カテゴリーが 1 階層しかない前提での簡易的な実装
+     */
+    #pathToRoot(catkey, artkey) {
+        let ret = "";
+        const a = this.articles(catkey, artkey);
+        if (a) {
+            ret = "../";
         }
         return ret;
     }
