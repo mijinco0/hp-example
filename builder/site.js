@@ -20,6 +20,7 @@ export default class Site {
     articles = (catkey) => { return this.#articles(catkey); };
     articleByKey = (catkey, artkey) => { return this.#articleByKey(catkey, artkey); };
     articleByPath = (htmlpath) => { return this.#articleByPath(htmlpath); };
+    paths = (key = undefined) => { return this.#paths(key); };
     pathFromRoot = (catkey, artkey) => { return this.#pathFromRoot(catkey, artkey); };
     pathToRoot = (catkey, artkey) => { return this.#pathToRoot(catkey, artkey); };
     linkto = (catkey, artkey, id = undefined) => { return this.#linkto(catkey, artkey, id); };
@@ -30,18 +31,21 @@ export default class Site {
     // CSV ファイルの列番号定義
     #colnoCat = Object.freeze({key: 0, name: 1, dirname: 2, index: 3});
     #colnoArt = Object.freeze({key: 0, category: 1, title: 2, release: 3, lastmod: 4, fname: 5, sitemap: 6});
+    #colnoPath = Object.freeze({key: 0, path: 1});
 
     /**
      * コンストラクタ
      * @param {string} base_json - ベースとなる JSON ファイル
      * @param {string} cat_csv - カテゴリー一覧の CSV ファイル
      * @param {string} art_csv - 記事一覧の CSV ファイル
+     * @param {string} path_csv - サイト内パスの CSV ファイル
      */
-    constructor(base_json, cat_csv, art_csv) {
+    constructor(base_json, cat_csv, art_csv, path_csv) {
         const json = fs.readFileSync(base_json, "utf8");
         this.#site = JSON.parse(json);
         this.#readCategories(cat_csv);
         this.#readArticles(art_csv);
+        this.#readPaths(path_csv);
     }
 
     /**
@@ -134,6 +138,15 @@ export default class Site {
     }
 
     /**
+     * アセット等へのパスを返す
+     * @param {string} key
+     */
+    #paths(key = undefined) {
+        const p = this.#site.paths
+        return key ? p[key] : p;
+    }
+
+    /**
      * 他記事へのリンク情報 (タイトルと URL) を返す
      * @param {string} catkey - カテゴリー名 (キー文字列)
      * @param {string} artkey - 記事名 (キー文字列)
@@ -209,5 +222,21 @@ export default class Site {
             const valobj = Object.fromEntries(values);
             this.#site.categories[category].articles[key] = valobj;
         }
+    }
+
+    /**
+     * CSV ファイルからサイト内パス情報を読み出して this.#site に組み込む
+     */
+    #readPaths(fcsv) {
+        const csv = fs.readFileSync(fcsv, "utf8");
+
+        const paths = [];
+        for (const p of Util.parseCsv(csv)) {
+            const key = p[this.#colnoPath.key];
+            const val = p[this.#colnoPath.path];
+            paths.push([key, val]);
+        }
+
+        this.#site.paths = Object.fromEntries(paths);
     }
 }

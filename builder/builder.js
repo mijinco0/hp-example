@@ -94,8 +94,9 @@ async function parseOptions() {
 function createSite(conf) {
     const site = new Site(
         conf.siteStructureFile.base,
-        conf.siteStructureFile.category,
-        conf.siteStructureFile.article
+        conf.siteStructureFile.categories,
+        conf.siteStructureFile.articles,
+        conf.siteStructureFile.paths
     );
     conf.site = site;
 }

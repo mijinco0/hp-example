@@ -3,8 +3,9 @@
     "dstRoot": "$CWD/public",
     "siteStructureFile": {
         "base": "site/base.json",
-        "category": "site/category.csv",
-        "article": "site/article.csv"
+        "categories": "site/categories.csv",
+        "articles": "site/articles.csv",
+        "paths": "site/paths.csv"
     },
     "task": {
         "ejs": {

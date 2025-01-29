@@ -48,8 +48,9 @@ export default class Config {
 
         const o = conf.siteStructureFile;
         o.base = path.join(conf.srcRoot, o.base);
-        o.category = path.join(conf.srcRoot, o.category);
-        o.article = path.join(conf.srcRoot, o.article);
+        o.categories = path.join(conf.srcRoot, o.categories);
+        o.articles = path.join(conf.srcRoot, o.articles);
+        o.paths = path.join(conf.srcRoot, o.paths);
 
         for (const o of Object.values(conf.task)) {
             if (Array.isArray(o)) continue;

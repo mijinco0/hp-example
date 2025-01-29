@@ -1,0 +1,7 @@
+# key, path
+assets, "dummy_assets"
+css, "css"
+images, "dummy_assets/dummy_images"
+js, "dummy_assets/dummy_js"
+lib, "dummy_assets/dummy_lib"
+siteinfo, "siteinfo"

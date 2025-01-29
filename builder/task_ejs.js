@@ -112,9 +112,10 @@ class RenderData {
             newEntries: this.#makeNewEntries(),
             cssQuery: (conf.cssquery || conf.release) ? this.#makeCssQuery() : "",
             util: Util,
-            path: {
-                include: path.join(conf.task.ejs.inc, "/"),    // 末尾に「/」が付くことを保証する
-            },
+            path: Object.assign(
+                conf.site.paths(),
+                { include: path.join(conf.task.ejs.inc, "/") }    // 末尾に「/」が付くことを保証する
+            ),
 
             // よく使う関数に別名をつける
             linkto: conf.site.linkto,
