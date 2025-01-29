@@ -150,7 +150,7 @@ class RenderData {
         }
         dat.path.fromRoot = fromrt;
         dat.path.toRoot = tort;
-        console.log(`${fejs}, ejsfile=${path.basename(fejs)}, fromRoot=${fromrt}, toRoot=${tort}`);
+        console.log(`ejsfile=${path.basename(fejs)}, fromRoot=${fromrt}, toRoot=${tort}`);
 
         // 記事とカテゴリーのメタ情報を取得する
         const a = site.articleByPath(fhtml);
