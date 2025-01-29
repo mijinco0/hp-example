@@ -1,8 +1,12 @@
-<% const cat = $.category; %>
+<%_ let cat = undefined; _%>
+<%_ if (me.hasOwnProperty("category")) cat = me.category; _%>
+<%_ if (me.hasOwnProperty("title")) me = me.title; _%>
 <nav class="p-nav d-nav">
     <ol>
         <li><a href="<%- $.join($.path.toRoot, 'index.html'); %>">Home</a></li>
-        <li><a href="<%- $.join($.path.toRoot, 'index.html#' + cat.key); %>"><%- cat.name %></a></li>
-        <li><%- article.title %></li>
+        <%_ if (cat) { _%>
+        <li><a href="<%- $.join($.path.toRoot, 'index.html#') + cat.key; %>"><%- cat.name %></a></li>
+        <%_ } _%>
+        <li><%- me %></li>
     </ol>
 </nav>

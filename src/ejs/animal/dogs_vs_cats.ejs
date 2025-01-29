@@ -12,7 +12,7 @@
 
     <main class="l-main d-main">
         <div class="p-artheader d-artheader">
-            <%- include($.path.include + '_nav', {article: $.article}) %>
+            <%- include($.path.include + '_nav', {me: $.article}) %>
         </div>
 
         <%- include($.path.include + '_headline', {article: $.article}) %>
@@ -107,7 +107,7 @@
         </section>
 
         <div class="p-artfooter d-artfooter">
-            <%- include($.path.include + '_nav', {article: $.article}) %>
+            <%- include($.path.include + '_nav', {me: $.article}) %>
 
             <div class="p-goto-arttop d-goto-arttop">
                 <a class="u-nodeco" href="#">▲</a>
