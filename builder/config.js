@@ -3,6 +3,8 @@
 import path from "path/posix";
 import Util from "./util.js";
 
+const NEWED_BY_STATICMETHOD = Symbol();    // 外部から new されるのを防ぐ
+
 export default class Config {
     // 公開したいメソッドを、クラスフィールドで指定したアロー関数から呼び出す
     // 参考: https://jsprimer.net/basic/class/#this-in-class-fields
@@ -13,7 +15,10 @@ export default class Config {
     /**
      * コンストラクタ
      */
-    constructor(conf) {
+    constructor(newedby, conf) {
+        if (newedby !== NEWED_BY_STATICMETHOD) {
+            throw new Error("This constructor is private. Use Config.create() instead.");
+        }
         this.#conf = conf;
     }
 
@@ -26,7 +31,7 @@ export default class Config {
      */
     static create(conf) {
         this.#joinRoot(conf);
-        return new Config(conf);
+        return new Config(NEWED_BY_STATICMETHOD, conf);
     }
 
     /**
