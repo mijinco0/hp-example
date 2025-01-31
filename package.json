@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node builder/builder.js -d public.d",
-    "build.rel": "node builder/builder.js -d public -R",
+    "build.rel": "node builder/builder.js -d public -R -Q",
     "lint": "npx eslint src/dummy_js/**/*.js",
     "lint.builder": "npx eslint builder/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"

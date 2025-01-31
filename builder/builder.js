@@ -11,10 +11,12 @@
  * --js-src=<name>, -j <name>: JS のソースディレクトリ名 (*1)
  * --dst-root=<path>, -d <path>: 成果物の出力先ディレクトリへのパス (*1)
  * --release -R: 指定されたとき本番ビルド (圧縮 ON、デバッグ機能 OFF) を行う (*1)
- * --cssquery -q: 指定されたとき CSS クエリを付ける (*1)
+ * --query -Q: 指定されたとき CSS クエリを付ける (*1, *3)
+ * --no-query -q: 指定されたとき CSS クエリを付けない (*1, *3)
  * (*1) 指定した場合、config.json の対応するプロパティの値を上書きする
  * (*2) ファイル名を含めてもよい。ただし拡張子は .scss に固定とする
  *      ファイル名が省略された場合のデフォルトは style.scss となる
+ * (*3) -Q と -q が同時に指定されたら -q を優先する
  *
  * 使用上の注意:
  * - npm-scripts から実行する場合、上記のオプションは "--" の後に指定すること
@@ -53,7 +55,8 @@ async function parseOptions() {
         "js-src": { type: "string", short: "j", default: undefined, },
         "dst-root": { type: "string", short: "d", default: undefined, },
         "release": { type: "boolean", short: "R", default: undefined, },
-        "cssquery": { type: "boolean", short: "q", default: undefined, },
+        "query": { type: "boolean", short: "Q", default: undefined, },
+        "no-query": { type: "boolean", short: "q", default: undefined, },
     };
 
     try {
@@ -81,7 +84,8 @@ async function parseOptions() {
         }
         if ((v = args.values["js-src"])) conf.task.js.src = v;
         if ((v = args.values["dst-root"])) conf.dstRoot = v;
-        if ((v = args.values["cssquery"])) conf.cssQuery = v;
+        if (args.values["query"]) conf.cssQuery = true;
+        if (args.values["no-query"]) conf.cssQuery = false;
         if ((v = args.values["release"])) conf.release = v;
 
         return Conf.create(conf).object();

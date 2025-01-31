@@ -110,7 +110,7 @@ class RenderData {
         this.#dat = {
             site: conf.site,
             newEntries: this.#makeNewEntries(),
-            cssQuery: (conf.cssquery || conf.release) ? this.#makeCssQuery() : "",
+            cssQuery: conf.cssQuery ? this.#makeCssQuery() : "",
             util: Util,
             path: Object.assign(
                 conf.site.paths(),
