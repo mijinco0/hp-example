@@ -30,7 +30,13 @@ export default class Config {
      * @returns {object} this
      */
     static create(conf) {
-        this.#joinRoot(conf);
+        try {
+            this.#joinRoot(conf);
+            this.#checkForRelease(conf);
+        } catch (err) {
+            console.error(err);
+            return undefined;
+        }
         return new Config(NEWED_BY_STATICMETHOD, conf);
     }
 
@@ -67,6 +73,16 @@ export default class Config {
         for (const o of conf.task.copy) {
             o.from = path.join(conf.srcRoot, o.from);
             o.to = path.join(conf.dstRoot, o.to);
+        }
+    }
+
+    /**
+     * リリースビルド時は conf.enforceForRelease 直下のプロパティで conf を上書きする \
+     * conf にはあって conf.enforceForRelease にはないプロパティは維持する
+     */
+    static #checkForRelease(conf) {
+        if (conf.release) {
+            conf = Util.mergeObjects(conf, conf.enforceForRelease, true);
         }
     }
 }

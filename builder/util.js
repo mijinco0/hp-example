@@ -147,6 +147,39 @@ export default class Util {
     }
 
     /**
+     * オブジェクト a にオブジェクト b を破壊的にマージする
+     * @param {boolean} subsetonly - true のとき、b は a のサブセットに限る \
+     * でなければエラーを投げて終わる。その場合 a の中身は保証しない
+     * @returns {object} - 破壊的にマージされたオブジェクト a
+     */
+    static mergeObjects(a, b, subsetonly = false) {
+        const isObject = (o) => o && (typeof o === "object");
+
+        for (const [key, val] of Object.entries(b)) {
+            if (subsetonly) {
+                if (!isObject(a) || !a.hasOwnProperty(key)) {
+                    throw new Error(`Unknown property: ${key}`);
+                }
+            }
+            if (!a) a = {};
+            a[key] = isObject(val) ? this.mergeObjects(a[key], val) : val;
+        }
+
+        return a;
+    }
+
+    /**
+     * オブジェクト a とオブジェクト b をマージした新しいオブジェクトを返す
+     * @param {boolean} subsetonly - true のとき、b は a のサブセットに限る \
+     * でなければエラーを投げて終わる
+     * @returns {object} - マージされたオブジェクト
+     */
+    static cloneMergedObject(a, b, subsetonly = false) {
+        const a2 = structuredClone(a);
+        return this.mergeObjects(a2, b, subsetonly);
+    }
+
+    /**
      * 指定されたオブジェクトを表示する
      */
     static printObject(obj, indent = " ".repeat(4)) {

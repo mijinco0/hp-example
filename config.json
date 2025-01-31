@@ -64,5 +64,19 @@
     },
     "cssQuery": false,
     "release": false,
+    "enforceForRelease": {
+        "task": {
+            "ejs": {
+                "minify": true
+            },
+            "sass": {
+                "minify": true
+            },
+            "js": {
+                "minify": true
+            }
+        },
+        "enforceForRelease": null
+    },
     "site": null
 }

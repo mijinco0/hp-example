@@ -122,7 +122,9 @@ async function build(conf) {
 }
 
 const conf = await parseOptions();
-createSite(conf);
-//Util.printObject(conf);
-//conf.site.printObject();
-await build(conf);
+if (conf) {
+    createSite(conf);
+    //Util.printObject(conf);
+    //conf.site.printObject();
+    await build(conf);
+}
