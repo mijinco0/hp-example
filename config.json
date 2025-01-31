@@ -16,21 +16,24 @@
                 "**/*.ejs",
                 "!**/_*.ejs",
                 "!template.ejs"
-            ]
+            ],
+            "minify": false
         },
         "sass": {
             "src": "sass",
             "dst": "css/style.css",
             "patterns": [
                 "style.scss"
-            ]
+            ],
+            "minify": false
         },
         "js": {
             "src": "dummy_js",
             "dst": "dummy_assets/dummy_js",
             "patterns": [
                 "**/*.js"
-            ]
+            ],
+            "minify": false
         },
         "sitemap": {
             "dst": "sitemap.xml",

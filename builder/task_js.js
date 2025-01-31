@@ -15,8 +15,8 @@ import Util from "./util.js";
  */
 const filters = {
     minify: {    // JS 圧縮
-        fn: async (text, release, options) => {
-            if (release) {
+        fn: async (text, enabled, options) => {
+            if (enabled) {
                 const result = await minify(text, options);
                 text = result.code;
             }
@@ -37,7 +37,7 @@ const filters = {
  */
 async function taskJs(conf) {
     const myconf = conf.task.js;
-    filters.minify.data = conf.release;
+    filters.minify.data = myconf.minify;
 
     const files = await Util.glob(myconf.patterns, myconf.src);
     for (const file of files) {

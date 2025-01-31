@@ -22,8 +22,8 @@ const filters = {
         options: undefined,
     },
     minify: {    // HTML 圧縮
-        fn: async (text, release, options) => {
-            return release ? minify(text, options) : text;
+        fn: async (text, enabled, options) => {
+            return enabled ? minify(text, options) : text;
         },
         data: false,
         options: {
@@ -49,7 +49,7 @@ async function taskEjs(conf) {
         rd.file(file);
         filters.render.data = {$: rd.data()};    // 各 EJS ファイル側から「$」で参照できるようにする
         filters.render.options = rd.options();
-        filters.minify.data = conf.release;
+        filters.minify.data = myconf.minify;
 
         // EJS テンプレートファイルを読み込む
         let text = await fs.readFile(path.join(myconf.src, file), "utf8");

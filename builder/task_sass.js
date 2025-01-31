@@ -62,7 +62,7 @@ async function taskSass(conf) {
 
     filters.glob.options.cwd = myconf.src;
     filters.compile.options.loadPaths = [myconf.src];
-    filters.postcss.data = conf.release;
+    filters.postcss.data = myconf.minify;
     filters.postcss.options.from = myconf.src;
     filters.postcss.options.to = myconf.dst;
 
@@ -84,19 +84,19 @@ async function taskSass(conf) {
 /**
  * PostCSS を実行する
  * @param {string} text - 入力 CSS データ
- * @param {boolean} release - 本番ビルドのとき true
+ * @param {boolean} minify - true のとき圧縮する (その場合、ソースマップの出力も行わない)
  * @param {object} options - postcss.process() に渡すオプション
  * @returns {string} result - プラグインで処理済みの CSS データ
  */
-async function execPostcss(text, release = false, options) {
+async function execPostcss(text, minify = false, options) {
     try {
         const plugins = [sortmq({ sort: "mobile-first" })];
-        if (release) {
+        if (minify) {
             plugins.push(cssnano);
         }
 
         const result = await postcss(plugins).process(text, options);
-        if (!release && result.map) {
+        if (!minify && result.map) {
             await fs.writeFile(`${options.to}.map`, result.map.toString());
         }
 
