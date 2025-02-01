@@ -65,9 +65,9 @@ export default class Config {
 
         for (const o of Object.values(conf.task)) {
             if (Array.isArray(o)) continue;
-            if (Object.prototype.hasOwnProperty.call(o, "src")) o.src = path.join(conf.srcRoot, o.src);
-            if (Object.prototype.hasOwnProperty.call(o, "inc")) o.inc = path.join(conf.srcRoot, o.inc);
-            if (Object.prototype.hasOwnProperty.call(o, "dst")) o.dst = path.join(conf.dstRoot, o.dst);
+            if (Object.hasOwn(o, "src")) o.src = path.join(conf.srcRoot, o.src);
+            if (Object.hasOwn(o, "inc")) o.inc = path.join(conf.srcRoot, o.inc);
+            if (Object.hasOwn(o, "dst")) o.dst = path.join(conf.dstRoot, o.dst);
         }
 
         for (const o of conf.task.copy) {

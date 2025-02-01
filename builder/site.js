@@ -67,7 +67,7 @@ export default class Site {
      */
     #articles(catkey, artkey = undefined) {
         const cat = this.#site.categories[catkey];
-        if (!cat || !Object.prototype.hasOwnProperty.call(cat, "articles")) return undefined;
+        if (!cat || !Object.hasOwn(cat, "articles")) return undefined;
 
         if (!artkey) {
             const arts = Object.values(cat.articles);
@@ -89,7 +89,7 @@ export default class Site {
         const htmlname = pp.base;
 
         const c = this.#site.categories[catkey];
-        if (!c || !Object.prototype.hasOwnProperty.call(c, "articles")) return undefined;
+        if (!c || !Object.hasOwn(c, "articles")) return undefined;
 
         const articles = Object.values(c.articles);
         const a = articles.find(({ fname }) => { return fname === htmlname });

@@ -157,7 +157,7 @@ export default class Util {
 
         for (const [key, val] of Object.entries(b)) {
             if (subsetonly) {
-                if (!isObject(a) || !a.hasOwnProperty(key)) {
+                if (!isObject(a) || !Object.hasOwn(a, key)) {
                     throw new Error(`Unknown property: ${key}`);
                 }
             }

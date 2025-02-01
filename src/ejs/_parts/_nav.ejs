@@ -1,6 +1,6 @@
 <%_ let cat = undefined; _%>
-<%_ if (me.hasOwnProperty("category")) cat = me.category; _%>
-<%_ if (me.hasOwnProperty("title")) me = me.title; _%>
+<%_ if (Object.hasOwn(me, "category")) cat = me.category; _%>
+<%_ if (Object.hasOwn(me, "title")) me = me.title; _%>
 <nav class="p-nav d-nav">
     <ol>
         <li><a href="<%- $.join($.path.toRoot, 'index.html'); %>">Home</a></li>
