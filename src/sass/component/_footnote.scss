@@ -1,6 +1,8 @@
+@use "foundation/defs";
+
 .c-footnote {
-    margin-top: $margin-default;
-    margin-right: $margin-default;
+    margin-top: defs.$margin-default;
+    margin-right: defs.$margin-default;
     margin-left: 3.0em;
     font-size: 1.3rem;
 

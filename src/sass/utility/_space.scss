@@ -1,23 +1,25 @@
+@use "foundation/defs";
+
 /* margin default */
 .u-mt {
-    margin-top: $margin-default;
+    margin-top: defs.$margin-default;
 }
 .u-mr {
-    margin-right: $margin-default;
+    margin-right: defs.$margin-default;
 }
 .u-mb {
-    margin-bottom: $margin-default;
+    margin-bottom: defs.$margin-default;
 }
 .u-ml {
-    margin-left: $margin-default;
+    margin-left: defs.$margin-default;
 }
 .u-mtb {
-    margin-top: $margin-default;
-    margin-bottom: $margin-default;
+    margin-top: defs.$margin-default;
+    margin-bottom: defs.$margin-default;
 }
 .u-mrl {
-    margin-right: $margin-default;
-    margin-left: $margin-default;
+    margin-right: defs.$margin-default;
+    margin-left: defs.$margin-default;
 }
 .u-mtb-auto {
     margin-top: auto;
@@ -30,24 +32,24 @@
 
 /* padding default */
 .u-pt {
-    padding-top: $padding-default;
+    padding-top: defs.$padding-default;
 }
 .u-pr {
-    padding-right: $padding-default;
+    padding-right: defs.$padding-default;
 }
 .u-pb {
-    padding-bottom: $padding-default;
+    padding-bottom: defs.$padding-default;
 }
 .u-pl {
-    padding-left: $padding-default;
+    padding-left: defs.$padding-default;
 }
 .u-ptb {
-    padding-top: $padding-default;
-    padding-bottom: $padding-default;
+    padding-top: defs.$padding-default;
+    padding-bottom: defs.$padding-default;
 }
 .u-prl {
-    padding-right: $padding-default;
-    padding-left: $padding-default;
+    padding-right: defs.$padding-default;
+    padding-left: defs.$padding-default;
 }
 
 $sp-step: 5;

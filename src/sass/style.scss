@@ -1,6 +1,6 @@
-@import "foundation/_foundation";
-@import "layout/**";
-@import "component/**";
-@import "project/**";
-@import "utility/**";
-//@import "debug/**";
+@use "foundation";
+@use "layout";
+@use "component";
+@use "project";
+@use "utility";
+//@use "debug";

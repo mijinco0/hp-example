@@ -1,0 +1,17 @@
+@use "foundation/defs";
+
+%c-itemize__item {
+    list-style-type: none;
+    position: relative;
+
+    &::before {
+        content: "・";
+        display: inline-block;
+        margin-left: -1.2em;
+        width: 1em;
+        text-align: right;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}

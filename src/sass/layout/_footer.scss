@@ -1,11 +1,13 @@
+@use "foundation/defs";
+
 .l-footer {
     grid-area: footer;
-    height: $footer-height-sp;
+    height: defs.$footer-height-sp;
 }
 
-@include mq-up("pc") {
+@include defs.mq-up("pc") {
     .l-footer {
-        height: $footer-height-pc;
-        margin-bottom: $margin-default;
+        height: defs.$footer-height-pc;
+        margin-bottom: defs.$margin-default;
     }
 }

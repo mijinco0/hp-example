@@ -28,6 +28,7 @@ async function sassGlob(text, option = { cwd: "." }) {
             let pattern = path.join(m[1], "*.scss");
             pattern = Util.posixPath(pattern);    // glob は POSIX 形式じゃないと受け付けてくれないらしい
             const files = await glob(pattern, option);
+            files.sort();
             for (const file of files) {
                 const fimport = Util.posixPath(file).replace(".scss", "");
                 text += `@import "${fimport}";${br}`;

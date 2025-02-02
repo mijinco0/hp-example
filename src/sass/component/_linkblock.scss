@@ -1,3 +1,5 @@
+@use "foundation/defs";
+
 .c-linkline {
     text-align: center;
     padding-left: inherit;    /* c-itemize や c-itembox の中に置かれた場合の字下げ対策 */

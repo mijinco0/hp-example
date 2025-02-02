@@ -1,3 +1,5 @@
+@use "foundation/defs";
+
 html {
     /* ベースフォントをデフォルトの 16px から 10px (= 16 * 0.625) にする
        こうすると 1rem = 10px (= 10px * 1)，1.5rem = 15px (= 10px * 1.5) となり計算しやすい */
@@ -14,7 +16,7 @@ body {
         "ＭＳ Ｐゴシック", "MS P Gothic",
         sans-serif;
     font-size: 1.5rem;
-    color: $font-color;
+    color: defs.$font-color;
 
     a {
         /* マウスホバー時だけリンクに下線を引く */

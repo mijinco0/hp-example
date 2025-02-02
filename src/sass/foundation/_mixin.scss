@@ -1,8 +1,11 @@
-﻿// メディアクエリ
+﻿@use "sass:map";
+@use "variables" as v;
+
+// メディアクエリ
 @mixin mq-up($bp: tab) {
     // 条件に screen を入れておかないと all と同じ意味になり、
     // 印刷時にも適用されてしまう
-    @media screen and #{map-get($breakpoints-up, $bp)} {
+    @media screen and #{map.get(v.$breakpoints-up, $bp)} {
         @content;
     }
 }

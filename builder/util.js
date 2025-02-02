@@ -141,6 +141,7 @@ export default class Util {
      */
     static async pipeline(text, filters = {}) {
         for (const f of Object.values(filters)) {
+            if (Object.hasOwn(f, "enable") && !f.enable) continue;
             text = await f.fn(text, f.data, f.options);
         }
         return text;

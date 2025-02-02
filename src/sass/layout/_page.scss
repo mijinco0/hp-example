@@ -1,10 +1,12 @@
+@use "foundation/defs";
+
 .l-page {
     max-width: 100%;
     margin-right: auto;
     margin-left: auto;
 
     display: grid;
-    grid-gap: $margin-default;
+    grid-gap: defs.$margin-default;
     align-items: start;    /* これを指定しないとメインとサイドバーの高さを無理やり合わせにくる */
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -14,11 +16,11 @@
         "footer"
 }
 
-@include mq-up("pc") {
+@include defs.mq-up("pc") {
     .l-page {
-        max-width: $layout-width-max;
-        column-gap: $margin-default * 1.5;
-        grid-template-columns: 1fr $sidebar-width-pc;
+        max-width: defs.$layout-width-max;
+        column-gap: defs.$margin-default * 1.5;
+        grid-template-columns: 1fr defs.$sidebar-width-pc;
         grid-template-areas:
             "header header"
             "main sidebar"
@@ -28,7 +30,7 @@
 
 @media print {
     .l-page {
-        max-width: $print-width;
+        max-width: defs.$print-width;
         grid-template-columns: 1fr;
         grid-template-areas:
             "header"
