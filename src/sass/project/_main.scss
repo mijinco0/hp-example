@@ -1,3 +1,5 @@
+@use "foundation/defs";
+
 .p-artheader {
 }
 
@@ -29,11 +31,11 @@
 
 .p-toc {
     position: relative;
-    margin: 0 $margin-default;
+    margin: 0 defs.$margin-default;
     margin-top: 10pt;
     padding-top: 1em;
-    padding-bottom: $padding-default;
-    border: 1px solid $font-color;
+    padding-bottom: defs.$padding-default;
+    border: 1px solid defs.$font-color;
 }
 
 .p-toc__label {
@@ -43,7 +45,7 @@
     margin: 0;
     padding: 0 0.5em;
     font-size: 1.5rem;
-    background-color: $site-color-bg;
+    background-color: defs.$site-color-bg;
     transform: translateY(-50%) translateX(1em);
 }
 
@@ -73,7 +75,7 @@
 }
 
 .p-artfooter {
-    border-top: solid 2px $site-color;
+    border-top: solid 2px defs.$site-color;
     padding-top: 5px;
     display: flex;
     justify-content: space-between;
@@ -87,5 +89,5 @@
 .p-date {
     text-align: right;
     font-size: 1.3rem;
-    color: $font-color-light;
+    color: defs.$font-color-light;
 }

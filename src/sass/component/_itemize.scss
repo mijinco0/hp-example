@@ -1,3 +1,6 @@
+@use "foundation/defs";
+@use "extend";
+
 %c-itemize--base {
     margin-left: 2.0em;
     margin-right: 1.0em;
@@ -53,22 +56,6 @@
             top: 0;
             left: 0;
         }
-    }
-}
-
-%c-itemize__item {
-    list-style-type: none;
-    position: relative;
-
-    &::before {
-        content: "・";
-        display: inline-block;
-        margin-left: -1.2em;
-        width: 1em;
-        text-align: right;
-        position: absolute;
-        top: 0;
-        left: 0;
     }
 }
 

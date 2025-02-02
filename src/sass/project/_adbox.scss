@@ -1,3 +1,5 @@
+@use "foundation/defs";
+
 .p-adbox-sp {
     display: block;
 }
@@ -6,7 +8,7 @@
     display: none;
 }
 
-@include mq-up("pc") {
+@include defs.mq-up("pc") {
     .p-adbox-sp {
         display: none;
     }

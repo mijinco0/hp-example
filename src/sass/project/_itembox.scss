@@ -1,18 +1,20 @@
+@use "foundation/defs";
+
 .p-itembox {
-    border-color: $site-color;
+    border-color: defs.$site-color;
 }
 
 /* サイドバー用の itembox (実験用) */
 .p-itembox-sb {
     @extend .p-itembox;
-    @include mq-up("pc") {
+    @include defs.mq-up("pc") {
         /* flexbox で行末を三点リーダー処理したい場合は
            固定幅を指定しないとうまくいかないようだ？ */
-        width: $sidebar-width-pc;
+        width: defs.$sidebar-width-pc;
     }
 }
 
 .p-itembox__label {
-    background-color: $site-color;
-    color: $site-color-fg;
+    background-color: defs.$site-color;
+    color: defs.$site-color-fg;
 }

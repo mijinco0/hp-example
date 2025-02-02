@@ -1,14 +1,16 @@
+@use "foundation/defs";
+
 .l-sidebar {
     grid-area: sidebar;
-    padding-right: $padding-default;
-    padding-left: $padding-default;
+    padding-right: defs.$padding-default;
+    padding-left: defs.$padding-default;
 
     display: grid;
-    grid-gap: $margin-default;
+    grid-gap: defs.$margin-default;
     grid-template-columns: 1fr;
 }
 
-@include mq-up("pc") {
+@include defs.mq-up("pc") {
     .l-sidebar {
         padding-right: 0;
         padding-left: 0;

@@ -1,6 +1,8 @@
+@use "foundation/defs";
+
 .p-footer {
-    background: $site-color;
-    color: $site-color-fg;
+    background: defs.$site-color;
+    color: defs.$site-color-fg;
     display: flex;
     align-items: center;
     justify-content: center;

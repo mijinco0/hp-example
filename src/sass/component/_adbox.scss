@@ -1,10 +1,12 @@
+@use "foundation/defs";
+
 .c-adbox {
 }
 
 .c-adbox__label {
     padding-left: 5px;
     font-size: 90%;
-    color: $font-color-light;
+    color: defs.$font-color-light;
 }
 
 .c-adbox__body {

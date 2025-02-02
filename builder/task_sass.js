@@ -25,6 +25,7 @@ const filters = {
         options: {
             cwd: undefined,
         },
+        enable: false,
     },
     compile: {    // Sass から CSS にコンパイルするフィルタ
         fn: async (text, data, options) => {

@@ -1,11 +1,13 @@
+@use "foundation/defs";
+
 .l-header {
     grid-area: header;
-    height: $header-height-sp;
+    height: defs.$header-height-sp;
 }
 
-@include mq-up("pc") {
+@include defs.mq-up("pc") {
     .l-header {
-        height: $header-height-pc;
-        margin-top: $margin-default;
+        height: defs.$header-height-pc;
+        margin-top: defs.$margin-default;
     }
 }
