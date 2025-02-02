@@ -114,9 +114,3 @@
   - 生成物の出力先: プロジェクトディレクトリ直下の public/
   - HTML / CSS / JS 圧縮: あり
   - CSS クエリ: 付加する (ビルド日時をもとに生成)
-
-
-## 残課題
-
-- Sass の @import を @use に変更<br>
-  参考: https://sass-lang.com/documentation/at-rules/import/
