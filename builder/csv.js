@@ -88,21 +88,21 @@ class CsvParser {
     #states = {
         normal: {    // 通常状態
             key: "normal",
-            enter: (ch) => { this.#field.init(); },
-            action: (ch) => { (ch === this.#ch.comma) ? this.#field.fix() : this.#field.append(ch); },
-            leave: (ch) => {},
+            entry: (ch) => { this.#field.init(); },
+            do: (ch) => { (ch === this.#ch.comma) ? this.#field.fix() : this.#field.append(ch); },
+            exit: (ch) => {},
         },
         indq: {    // ダブルクォート内を処理中
             key: "indq",
-            enter: (ch) => {},
-            action: (ch) => { this.#field.append(ch); },
-            leave: (ch) => {},
+            entry: (ch) => {},
+            do: (ch) => { this.#field.append(ch); },
+            exit: (ch) => {},
         },
         escape: {    // エスケープの有無を見極め中
             key: "escape",
-            enter: (ch) => {},
-            action: (ch) => {},
-            leave: (ch) => { (ch === this.#ch.comma) ? this.#field.fix() : this.#field.append(ch); },
+            entry: (ch) => {},
+            do: (ch) => {},
+            exit: (ch) => { (ch === this.#ch.comma) ? this.#field.fix() : this.#field.append(ch); },
         },
     };
 
@@ -133,7 +133,7 @@ class CsvParser {
      */
     #init() {
         this.#state = this.#states.normal;
-        this.#state.enter();
+        this.#state.entry();
         this.#fields = [];
     }
 
@@ -147,15 +147,15 @@ class CsvParser {
 
         const next = this.#table[this.#state.key][this.#event(ch)];
         if (next !== this.#state) {
-            this.#state.leave(ch);
+            this.#state.exit(ch);
             if (!next) {
                 this.#fin();
                 return true;
             }
             this.#state = next;
-            this.#state.enter(ch);
+            this.#state.entry(ch);
         } else {
-            this.#state.action(ch);
+            this.#state.do(ch);
         }
 
         return false;
