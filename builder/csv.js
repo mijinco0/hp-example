@@ -64,10 +64,10 @@ class CsvParser {
     fields = () => { return this.#fields.map((f) => f.trim()); };
 
     // 特別待遇な文字の定義
-    #ch = Object.freeze({comma: ",", dq: "\"", eol: "\n"});
+    #ch = Object.freeze({comma: ",", dq: "\"", eos: "\n"});
 
     // イベントの定義
-    #ev = Object.freeze({comma: "comma", dq: "dq", eol: "eol", others: "others"});
+    #ev = Object.freeze({comma: "comma", dq: "dq", eos: "eos", others: "others"});
 
     #state = undefined;     // 現在の状態を保持する
     #fields = undefined;    // フィールドを格納する配列
@@ -111,19 +111,19 @@ class CsvParser {
         normal: {
             comma: this.#states.normal,
             dq: this.#states.indq,
-            eol: undefined,
+            eos: undefined,
             others: this.#states.normal,
         },
         indq: {
             comma: this.#states.indq,
             dq: this.#states.escape,
-            eol: undefined,
+            eos: undefined,
             others: this.#states.indq,
         },
         escape: {
             comma: this.#states.normal,
             dq: this.#states.indq,
-            eol: undefined,
+            eos: undefined,
             others: this.#states.normal,
         },
     };
@@ -143,7 +143,7 @@ class CsvParser {
      * @returns {boolean} - true: 終了状態になった, false: 終了状態になっていない
      */
     #input(ch) {
-        if (ch === "\r") ch = this.#ch.eol;
+        if (ch === "\r") ch = this.#ch.eos;
 
         const next = this.#table[this.#state.key][this.#event(ch)];
         if (next !== this.#state) {
@@ -167,7 +167,7 @@ class CsvParser {
     #event(ch) {
         if (ch === this.#ch.comma) return this.#ev.comma;
         if (ch === this.#ch.dq) return this.#ev.dq;
-        if (ch === this.#ch .eol) return this.#ev.eol;
+        if (ch === this.#ch.eos) return this.#ev.eos;
         return this.#ev.others;
     }
 
