@@ -1,6 +1,22 @@
+<%_
+    if (typeof hasCode === 'undefined') {
+        hasCode = false;
+    }
+    let families = "";
+    families += "family=Lato:ital,wght@0,400;0,700;1,400;1,700";
+    families += "&" + "family=BIZ+UDPGothic:wght@400;700";
+    if (hasCode) {
+        families += "&" + "family=M+PLUS+1+Code";
+    }
+_%>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="canonical" href="https://<%- $.site.name() + $.path.fromRoot %>">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?<%- families %>&display=swap" rel="stylesheet">
+<!-- /Google Fonts -->
 <link rel="stylesheet" href="<%- $.join($.path.toRoot, $.path.css, 'reset.css'); %>">
 <link rel="stylesheet" href="<%- $.join($.path.toRoot, $.path.css, 'style.css') + $.cssQuery; %>">
