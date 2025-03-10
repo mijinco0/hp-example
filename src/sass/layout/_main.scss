@@ -3,6 +3,10 @@
 .l-main {
     padding-right: defs.$padding-default;
     padding-left: defs.$padding-default;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: defs.$margin-default;
 }
 
 @include defs.mq-up("pc") {
