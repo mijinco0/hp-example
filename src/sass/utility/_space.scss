@@ -52,50 +52,50 @@
     padding-left: defs.$padding-default;
 }
 
-$sp-step: 5;
+$_sp_step: 5;
 
-@for $i from 0 through 6 {
+@for $_i from 0 through 6 {
     /* margin */
-    .u-mt#{$i * $sp-step} {
-        margin-top: #{$i * $sp-step}px;
+    .u-mt#{$_i * $_sp_step} {
+        margin-top: #{$_i * $_sp_step}px;
     }
-    .u-mr#{$i * $sp-step} {
-        margin-right: #{$i * $sp-step}px;
+    .u-mr#{$_i * $_sp_step} {
+        margin-right: #{$_i * $_sp_step}px;
     }
-    .u-mb#{$i * $sp-step} {
-        margin-bottom: #{$i * $sp-step}px;
+    .u-mb#{$_i * $_sp_step} {
+        margin-bottom: #{$_i * $_sp_step}px;
     }
-    .u-ml#{$i * $sp-step} {
-        margin-left: #{$i * $sp-step}px;
+    .u-ml#{$_i * $_sp_step} {
+        margin-left: #{$_i * $_sp_step}px;
     }
-    .u-mtb#{$i * $sp-step} {
-        margin-top: #{$i * $sp-step}px;
-        margin-bottom: #{$i * $sp-step}px;
+    .u-mtb#{$_i * $_sp_step} {
+        margin-top: #{$_i * $_sp_step}px;
+        margin-bottom: #{$_i * $_sp_step}px;
     }
-    .u-mrl#{$i * $sp-step} {
-        margin-right: #{$i * $sp-step}px;
-        margin-left: #{$i * $sp-step}px;
+    .u-mrl#{$_i * $_sp_step} {
+        margin-right: #{$_i * $_sp_step}px;
+        margin-left: #{$_i * $_sp_step}px;
     }
 
     /* padding */
-    .u-pt#{$i * $sp-step} {
-        padding-top: #{$i * $sp-step}px;
+    .u-pt#{$_i * $_sp_step} {
+        padding-top: #{$_i * $_sp_step}px;
     }
-    .u-pr#{$i * $sp-step} {
-        padding-right: #{$i * $sp-step}px;
+    .u-pr#{$_i * $_sp_step} {
+        padding-right: #{$_i * $_sp_step}px;
     }
-    .u-pb#{$i * $sp-step} {
-        padding-bottom: #{$i * $sp-step}px;
+    .u-pb#{$_i * $_sp_step} {
+        padding-bottom: #{$_i * $_sp_step}px;
     }
-    .u-pl#{$i * $sp-step} {
-        padding-left: #{$i * $sp-step}px;
+    .u-pl#{$_i * $_sp_step} {
+        padding-left: #{$_i * $_sp_step}px;
     }
-    .u-ptb#{$i * $sp-step} {
-        padding-top: #{$i * $sp-step}px;
-        padding-bottom: #{$i * $sp-step}px;
+    .u-ptb#{$_i * $_sp_step} {
+        padding-top: #{$_i * $_sp_step}px;
+        padding-bottom: #{$_i * $_sp_step}px;
     }
-    .u-prl#{$i * $sp-step} {
-        padding-right: #{$i * $sp-step}px;
-        padding-left: #{$i * $sp-step}px;
+    .u-prl#{$_i * $_sp_step} {
+        padding-right: #{$_i * $_sp_step}px;
+        padding-left: #{$_i * $_sp_step}px;
     }
 }
