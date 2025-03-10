@@ -1,13 +1,8 @@
 @use "foundation/defs";
 
 .l-main {
-    grid-area: main;
     padding-right: defs.$padding-default;
     padding-left: defs.$padding-default;
-
-    display: grid;
-    grid-gap: defs.$margin-default;
-    grid-template-columns: 1fr;
 }
 
 @include defs.mq-up("pc") {
