@@ -7,6 +7,7 @@
 
 @include defs.mq-up("pc") {
     .l-sidebar {
+        width: defs.$sidebar-width-pc;
         padding-right: 0;
         padding-left: 0;
     }

@@ -1,10 +1,14 @@
 @use "foundation/defs";
 
 .l-contents {
+    display: flex;
+    flex-direction: column;
 }
 
 @include defs.mq-up("pc") {
     .l-contents {
+        flex-direction: row;
+        column-gap: defs.$margin-default * 1.5;
     }
 }
 
