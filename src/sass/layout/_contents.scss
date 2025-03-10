@@ -1,0 +1,14 @@
+@use "foundation/defs";
+
+.l-contents {
+}
+
+@include defs.mq-up("pc") {
+    .l-contents {
+    }
+}
+
+@media print {
+    .l-contents {
+    }
+}

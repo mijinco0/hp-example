@@ -41,8 +41,9 @@
 %>
 
 <div class="l-page">
-    <%- include($.path.include + '_header') %>
+<%- include($.path.include + '_header') %>
 
+<div class="l-contents">
     <main class="l-main d-main">
         <%- makeCategories(); %>
 
@@ -59,8 +60,9 @@
         <%- include($.path.include + '_newentry') %>
         <%- include($.path.include + '_siteinfo') %>
     </aside>
+</div>
 
-    <%- include($.path.include + '_footer') %>
+<%- include($.path.include + '_footer') %>
 </div>
 
 </body>
