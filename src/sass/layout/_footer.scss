@@ -2,6 +2,7 @@
 
 .l-footer {
     height: defs.$footer-height-sp;
+    margin-top: defs.$margin-default;
 }
 
 @include defs.mq-up("pc") {

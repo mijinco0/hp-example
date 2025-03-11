@@ -2,6 +2,7 @@
 
 .l-header {
     height: defs.$header-height-sp;
+    margin-bottom: defs.$margin-default;
 }
 
 @include defs.mq-up("pc") {
