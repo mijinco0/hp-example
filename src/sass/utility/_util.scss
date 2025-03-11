@@ -1,0 +1,7 @@
+@use "foundation/defs";
+
+.u-sticky {
+    position: sticky;
+    top: defs.$margin-default;
+    align-self:start;
+}

@@ -123,25 +123,7 @@
         </div>
     </main>
 
-    <aside class="l-sidebar d-sidebar">
-        <div class="c-adbox p-adbox-pc d-adbox">
-            <!-- JavaScript が有効のときだけ "広告" ラベルを表示する -->
-            <script>document.write('<p class="c-adbox__label d-adbox__label">広告</p>');</script>
-            <div class="c-adbox__body d-adbox__body">
-            </div>
-        </div>
-
-        <%- include($.path.include + '_category') %>
-        <%- include($.path.include + '_newentry') %>
-        <%- include($.path.include + '_siteinfo') %>
-
-        <div class="c-adbox p-adbox d-adbox">
-            <!-- JavaScript が有効のときだけ "広告" ラベルを表示する -->
-            <script>document.write('<p class="c-adbox__label d-adbox__label">広告</p>');</script>
-            <div class="c-adbox__body d-adbox__body">
-            </div>
-        </div>
-    </aside>
+    <%- include($.path.include + '_sidebar') %>
 </div>
 
 <%- include($.path.include + '_footer') %>

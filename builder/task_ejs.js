@@ -111,6 +111,7 @@ class RenderData {
             site: conf.site,
             newEntries: this.#makeNewEntries(),
             cssQuery: conf.cssQuery ? this.#makeCssQuery() : "",
+            sidebarPositionSticky: conf.sidebarPositionSticky,
             util: Util,
             path: Object.assign(
                 conf.site.paths(),

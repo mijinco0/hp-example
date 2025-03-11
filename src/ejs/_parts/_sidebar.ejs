@@ -1,0 +1,30 @@
+<%_
+    const incfiles = [
+        {
+            name: '_category',
+            param: {},
+        },
+        {
+            name: '_newentry',
+            param: {},
+        },
+        {
+            name: '_siteinfo',
+            param: {},
+        },
+    ];
+
+    const makeSidebar = (incfiles, br = '\r\n') => {
+        let result = "";
+        incfiles.forEach((f, i) => {
+            const elem = include($.path.include + f.name, f.param);
+            const to = ($.sidebarPositionSticky && (i >= (incfiles.length - 1))) ? "u-sticky" : "";
+            result += elem.replace("${sticky}", to);
+        });
+        return result;
+    };
+_%>
+
+<aside class="l-sidebar d-sidebar">
+    <%- makeSidebar(incfiles); %>
+</aside>

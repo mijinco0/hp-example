@@ -63,6 +63,7 @@
         ]
     },
     "cssQuery": false,
+    "sidebarPositionSticky": true,
     "release": false,
     "enforceForRelease": {
         "task": {
