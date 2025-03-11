@@ -1,17 +1,17 @@
 @use "foundation/defs";
 
 .l-sidebar {
-    grid-area: sidebar;
     padding-right: defs.$padding-default;
     padding-left: defs.$padding-default;
 
-    display: grid;
-    grid-gap: defs.$margin-default;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    row-gap: defs.$margin-default;
 }
 
 @include defs.mq-up("pc") {
     .l-sidebar {
+        width: defs.$sidebar-width-pc;
         padding-right: 0;
         padding-left: 0;
     }

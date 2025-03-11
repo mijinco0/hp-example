@@ -8,8 +8,9 @@
 <body>
 
 <div class="l-page">
-    <%- include($.path.include + '_header') %>
+<%- include($.path.include + '_header') %>
 
+<div class="l-contents">
     <main class="l-main d-main">
         <div class="p-artheader d-artheader">
             <%- include($.path.include + '_nav', {me: $.article}) %>
@@ -141,8 +142,9 @@
             </div>
         </div>
     </aside>
+</div>
 
-    <%- include($.path.include + '_footer') %>
+<%- include($.path.include + '_footer') %>
 </div>
 
 </body>

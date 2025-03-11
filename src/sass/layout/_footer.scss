@@ -1,8 +1,8 @@
 @use "foundation/defs";
 
 .l-footer {
-    grid-area: footer;
     height: defs.$footer-height-sp;
+    margin-top: defs.$margin-default;
 }
 
 @include defs.mq-up("pc") {
