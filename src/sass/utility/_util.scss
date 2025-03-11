@@ -1,7 +1,12 @@
 @use "foundation/defs";
 
 .u-sticky {
-    position: sticky;
-    top: defs.$margin-default;
-    align-self:start;
+}
+
+@include defs.mq-up("pc") {
+    .u-sticky {
+        position: sticky;
+        top: defs.$margin-default;
+        align-self:start;
+    }
 }
