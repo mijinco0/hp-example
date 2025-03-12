@@ -21,7 +21,7 @@
 <%# 各カテゴリーの記事へのリンクを作る %>
 <%
     const makeCategory = (cat, br) => {
-        let result = `<section class="p-section u-mt20 d-section">${br}`;
+        let result = `<section class="p-section d-section">${br}`;
         result += `<h4 id=\"${cat.key}\" class=\"p-subsection__headline--nodeco\">${cat.name}</h4>${br}`;
         result += `<ul class=\"c-itemize--disc u-mt5\">${br}`;
 
@@ -45,6 +45,7 @@
 
 <div class="l-contents">
     <main class="l-main d-main">
+        <div class="u-mt10"></div>
         <%- makeCategories(); %>
 
         <div class="p-artfooter d-artfooter">
