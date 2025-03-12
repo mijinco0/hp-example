@@ -22,7 +22,7 @@
 <%
     const makeCategory = (cat, br) => {
         let result = `<section class="p-section u-mt20 d-section">${br}`;
-        result += `<h4 id=\"${cat.key}\" class=\"p-subsection__headline\">${cat.name}</h4>${br}`;
+        result += `<h4 id=\"${cat.key}\" class=\"p-subsection__headline--nodeco\">${cat.name}</h4>${br}`;
         result += `<ul class=\"c-itemize--disc u-mt5\">${br}`;
 
         for (const art of $.site.articles(cat.key)) {

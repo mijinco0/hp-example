@@ -54,11 +54,15 @@
 .p-toc__body {
 }
 
-.p-section__headline {
+%p-section__headline {
     margin-top: 30px;
     margin-bottom: 20px;
     font-size: 2.4rem;
     font-weight: bold;
+}
+
+.p-section__headline {
+    @extend %p-section__headline;
     &::before {
         content: "##";
         //color: defs.$site-color;
@@ -68,15 +72,23 @@
     }
 }
 
+.p-section__headline--nodeco {
+    @extend %p-section__headline;
+}
+
 .p-section__body {
     margin-top: 5px;
 }
 
-.p-subsection__headline {
+%p-subsection__headline {
     margin-top: 10px;
     margin-bottom: 5px;
     font-size: 1.8rem;
     font-weight: bold;
+}
+
+.p-subsection__headline {
+    @extend %p-subsection__headline;
     &::before {
         content: "###";
         //color: defs.$site-color;
@@ -89,6 +101,10 @@
 .p-subsection__headline--wide {
     @extend .p-subsection__headline;
     margin-top: 30px;
+}
+
+.p-subsection__headline--nodeco {
+    @extend %p-subsection__headline;
 }
 
 .p-artfooter {
