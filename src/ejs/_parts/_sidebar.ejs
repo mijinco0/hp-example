@@ -19,7 +19,7 @@
         incfiles.forEach((f, i) => {
             const elem = include($.path.include + f.name, f.param);
             const to = ($.sidebarPositionSticky && (i >= (incfiles.length - 1))) ? "u-sticky" : "";
-            result += elem.replace("${sticky}", to);
+            result += elem.replace("_STICKY", to);
         });
         return result;
     };
